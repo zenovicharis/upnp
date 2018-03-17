@@ -1,0 +1,26 @@
+header {
+  box-shadow: 2px 2px 2px #ddd;
+  nav.row {
+    padding: 1em 0;
+    ul {
+      padding:0;
+      margin:0;
+      list-style-type: none;
+      text-align: right;
+      padding: 1em 0;
+      li {
+        display:inline-block;
+        color: $svelija-krem;
+        font-weight: 800;
+        font-style: italic;
+        a {
+          @extend %not-link;
+          color: $borda;
+        }
+      }
+    }
+    img#logo{
+      width:100%;
+    }
+  }
+}
