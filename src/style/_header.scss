@@ -6,7 +6,6 @@ header {
       padding:0;
       margin:0;
       list-style-type: none;
-      text-align: right;
       padding: 1em 0;
       li {
         display:inline-block;
@@ -15,6 +14,9 @@ header {
         font-style: italic;
         a {
           @extend %not-link;
+          &:hover{
+            color: $svelija-krem;
+          }
           color: $borda;
         }
       }

@@ -1,0 +1,24 @@
+#slider{
+
+  ul.custom-indicators{
+    margin:1em 3em;
+    li {
+      width:10px;
+      height:10px;
+      border-radius:15px;
+    }
+  }
+
+  div.carousel-item {
+    img {
+      width:100%;
+    }
+  }
+
+  #logo-slider{
+    width: 8em;
+    position: absolute;
+    bottom: 1em;
+    right: 2em;
+  }
+}
