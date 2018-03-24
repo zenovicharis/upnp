@@ -8,11 +8,11 @@ header {
       margin:0;
       list-style-type: none;
       padding: 1em 0;
+      text-transform: uppercase;
       li {
         display:inline-block;
         color: $svelija-krem;
         font-weight: 800;
-        text-transform: uppercase;
         // font-style: italic;
         a {
           @extend %not-link;
@@ -28,14 +28,12 @@ header {
       position: absolute;
       right: -68%;
       img{
-        width: 3.5%;
+        width: 6%;
       }
       a{
         color: $borda;
-        font-weight:600;
         &:hover{
           text-decoration:none;
-          
         }
       }
     }

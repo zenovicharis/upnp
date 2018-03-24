@@ -16,8 +16,17 @@
   }
 
   .custom-block-banner{
+    font-size:120%;
+    border-radius:10px;
     border:2px solid #fff;
     letter-spacing: 4px;
+
+    cursor:pointer;
+    transition:all .1s ease 0s;
+    &:hover{
+      background: #efefef;
+      color: #4b1b1b;
+    }
   }
 }
 

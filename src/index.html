@@ -5,14 +5,15 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <title>UPNP</title>
 </head>
-<body>
+<body style="display:none">
   <header>
     <div class="container">
       <nav class="row">
-        <div class="col-3">
-          <img src="img/logoupnp.svg" id="logo" alt="Organization's Logo">
+        <div class="col-3 d-flex align-items-center">
+          <img src="img/logoupnp.svg" id="logo" class="" alt="Organization's Logo">
         </div>
         <div class="col d-flex align-items-center justify-content-end">
           <ul>
@@ -43,11 +44,11 @@
             <li>
               <a href="">Kontakti</a>
             </li>
-            <li>/</li>
-            <li>
-              <a href="">English</a> 
-            </li>
           </ul>
+          <span class="lang">
+            <img src="img/eng.png" alt="">
+            <a href="">ENG</a> 
+          </span>
         </div> 
       </nav>
     </div>
@@ -92,25 +93,36 @@
       <!-- END Slider ROW -->
 
       <!-- News ROW -->
-      <div class="row d-flex justify-content-around mx-3 my-4">
-          <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="http://via.placeholder.com/280x140" alt="Card image cap">
+      <div class="row main-section-titile mx-3 my-4">
+        <div class="col news">
+          <p class="mb-0">
+            <span>  Vesti</span>
+          </p>
+        </div>
+        <div class="col text-right mt-2 link">
+          <p class="mb-0">Za vise vesti <a href="#">pritisnite ovde</a></p>
+        </div>
+      </div>
+      <div class="row d-flex justify-content-around mx-0 mb-4">
+        
+          <div class="col p-0">
+            <img class="card-img-top no-radius" src="http://via.placeholder.com/280x140" alt="Card image cap">
             <div class="card-body">
               <h5>Some text link title here</h5>
               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
             </div>
           </div>
 
-          <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="http://via.placeholder.com/280x140" alt="Card image cap">
+          <div class="col p-0">
+            <img class="card-img-top no-radius" src="http://via.placeholder.com/280x140" alt="Card image cap">
             <div class="card-body">
               <h5>Some text link title here</h5>
               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
             </div>
           </div>
 
-          <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="http://via.placeholder.com/280x140" alt="Card image cap">
+          <div class="col p-0">
+            <img class="card-img-top no-radius" src="http://via.placeholder.com/280x140" alt="Card image cap">
             <div class="card-body">
               <h5>Some text link title here</h5>
               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -140,15 +152,15 @@
           </p>
         </div>
         <div class="col-5 d-flex align-items-center">
-          <h2 class="custom-block-banner m-auto p-2">DONATORI I PARTNERI</h2>
+          <h2 class="custom-block-banner m-auto p-4" id="patreons">DONATORI I PARTNERI</h2>
         </div>
       </div>
       <!-- END Donate Banner ROW -->
 
       <!-- About Us ROW -->
        <div class="row about-us py-2 m-0">
-        <div class="col-2">
-          <img src="img/giftboxdonate.svg" alt="">
+        <div class="col-2 logo-beli d-flex vertical-align-center">
+          <img src="img/LOGOBELI.svg" alt="">
         </div>
         <div class="col-5 pl-0">
           <p class="text-justify">
@@ -162,7 +174,6 @@
         </div>
       </div>
       <!-- END About Us ROW -->
-      <hr class="custom-hr">
 
       <!-- Info ROW -->
       <div class="row m-0">
@@ -186,7 +197,7 @@
       <div class="container">
         <div class="row m-0">
           <div class="col">
-            Copyrights &copy; Shoo 2018
+            Copyrights &copy; ZenShu 2018
           </div>
           <div class="col menu d-flex justify-content-end">
             <ul class="p-0">

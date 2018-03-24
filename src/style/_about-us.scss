@@ -3,7 +3,19 @@
   color:#fff;
   font-style: italic;
   text-justify:both;
+  font-size:75%;
+  p {
+    vertical-align: middle;
+    display: table-cell;
+    padding-top: 2em;
+    
+  }
   .highlighted{
     color:$borda;
+  }
+
+  .logo-beli img{
+    width: 75%;
+    margin: auto;
   }
 }

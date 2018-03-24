@@ -12,6 +12,7 @@ var extractPlugin = new ExtractTextPlugin({
 module.exports = {
     entry: {
       app:'./src/js/app.js',
+      // 'patreon':'./src/pages/patreon/js/app.js',
       bootstrap:bootstrapEntryPoints.dev
     },
     output: {
@@ -77,9 +78,23 @@ module.exports = {
     plugins: [
         extractPlugin,
         new HtmlWebpackPlugin({
-            template: 'src/index.html',
-            allChunks:false
+          title: 'Landing',
+          // chunks: ['manifest', 'vendor', 'searchView'],
+          template: 'src/index.html',// Load a custom template
+          inject: 'body', // Inject all scripts into the body
+          filename: 'index.html'
         }),
+        new HtmlWebpackPlugin({
+          title: 'Sponsors',
+          // chunks: ['manifest', 'vendor', 'ticketView'],
+          template: 'src/pages/patreon/index.html', // Load a custom template
+          inject: 'body', // Inject all scripts into the body
+          filename: 'patreon.html'
+        }),
+        // new HtmlWebpackPlugin("./src/[name].html", {
+        //     template: 'src/index.html',
+        //     allChunks:false
+        // }),
         new CleanWebpackPlugin(['dist']),
         new webpack.ProvidePlugin({
           $: "jquery",
