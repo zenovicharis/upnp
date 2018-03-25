@@ -17,6 +17,8 @@ module.exports = {
       'contact':'./src/pages/contact/js/app.js',
       'volountieer-service':'./src/pages/volountieer-service/js/app.js',
       'gallery':'./src/pages/gallery/js/app.js',
+      'news':'./src/pages/news/js/app.js',
+      'single-news':'./src/pages/single-news/js/app.js',
       bootstrap:bootstrapEntryPoints.dev
     },
     output: {
@@ -116,6 +118,20 @@ module.exports = {
           template: 'src/pages/gallery/index.html', // Load a custom template
           inject: 'body', // Inject all scripts into the body
           filename: 'gallery.html'
+        }),
+        new HtmlWebpackPlugin({
+          title: 'Galerija',
+          chunks: ['news', 'bootstrap'],
+          template: 'src/pages/news/index.html', // Load a custom template
+          inject: 'body', // Inject all scripts into the body
+          filename: 'news.html'
+        }),
+        new HtmlWebpackPlugin({
+          title: 'Vest',
+          chunks: ['single-news', 'bootstrap'],
+          template: 'src/pages/single-news/index.html', // Load a custom template
+          inject: 'body', // Inject all scripts into the body
+          filename: 'single-news.html'
         }),
         new CleanWebpackPlugin(['dist']),
         new webpack.ProvidePlugin({

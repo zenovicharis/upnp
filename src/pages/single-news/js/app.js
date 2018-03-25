@@ -1,5 +1,4 @@
-import "../style/main_g.scss";
-var gallery = require("./carousel-gallery.js");
+import "../style/main_sn.scss";
 
 $(document).ready(function(){
   $("body").css("display", "block");
@@ -8,7 +7,3 @@ $(document).ready(function(){
   })
   
 });
-
-function Gallery(){
-    
-}

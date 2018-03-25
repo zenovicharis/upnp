@@ -1,0 +1,28 @@
+.news-sections {
+  padding:1em 0;
+  position:relative;
+  .news-picture {
+    border-top:3px solid $borda;
+    padding:0;
+    img {
+      width:100%;
+    }
+  }
+  button {
+    position: absolute;
+    right: 3%;
+    bottom: 0;
+    &:hover {
+      background-color:$borda;
+      color:#fff;
+    }
+  }
+  .date{
+    position: absolute;
+    left: -7.8%;
+    background-color: #4C1B1B;
+    color: #fff;
+    display: inline-block;
+    padding: 5px 5px;
+  }
+}

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=`, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>UPNP Sponzori</title>
+</head>
+
+<body style="display:none;">
+  <header>
+    <div class="container">
+      <nav class="row">
+        <div class="col-3 d-flex align-items-center">
+          <img src="img/logoupnp.svg" id="logo" class="" alt="Organization's Logo">
+        </div>
+        <div class="col d-flex align-items-center justify-content-end">
+          <ul>
+            <li>
+              <a href="news.html">Vesti</a>
+            </li>
+            <li>/</li>
+            <li>
+              <a href="">Projekti</a>
+            </li>
+            <li>/</li>
+            <li>
+              <a href="volountieer-service.html">Volonterski Servis</a>
+            </li>
+            <li>/</li>
+            <li>
+              <a href="">Blog</a>
+            </li>
+            <li>/</li>
+            <li>
+              <a href="gallery.html">Galerija</a>
+            </li>
+            <li>/</li>
+            <li>
+              <a href="about.html">O nama</a>
+            </li>
+            <li>/</li>
+            <li>
+              <a href="contact.html">Kontakti</a>
+            </li>
+          </ul>
+          <span class="lang">
+            <img src="img/eng.png" alt="">
+            <a href="">ENG</a>
+          </span>
+        </div>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="container main-container">
+      <div class="row">
+        <div class="col main-pic px-0">
+          <h3>Main Title</h3>
+          <img src="http://via.placeholder.com/950x480" alt="">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-8 py-5">
+          <h4>Some title not main one</h4>
+          <p class="text-justify">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Blanditiis inventore maxime nam architecto odit optio beatae, excepturi
+            asperiores cupiditate modi quidem obcaecati neque veniam vitae nobis culpa repellat? Ad, ab. Lorem ipsum dolor
+            sit amet, consectetur adipisicing elit. Dolorum amet quod odio minus ab, corrupti ipsum non expedita! Quia, totam.
+            Culpa corporis unde repellendus accusantium illo beatae voluptate aliquam omnis. <br><br>
+
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Blanditiis inventore maxime nam architecto odit optio beatae, excepturi
+            asperiores cupiditate modi quidem obcaecati neque veniam vitae nobis culpa repellat? Ad, ab. Lorem ipsum dolor
+            sit amet, consectetur adipisicing elit. Dolorum amet quod odio minus ab, corrupti ipsum non expedita! Quia, totam.
+            Culpa corporis unde repellendus accusantium illo beatae voluptate aliquam omnis. <br><br>
+
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Blanditiis inventore maxime nam architecto odit optio beatae, excepturi
+            asperiores cupiditate modi quidem obcaecati neque veniam vitae nobis culpa repellat? Ad, ab. Lorem ipsum dolor
+            sit amet, consectetur adipisicing elit. Dolorum amet quod odio minus ab, corrupti ipsum non expedita! Quia, totam.
+            Culpa corporis unde repellendus accusantium illo beatae voluptate aliquam omnis.
+          </p>
+        </div>
+        <div class="col-4 row m-0 p-0">
+          <div class="col-12 single-suggestion px-0">
+            <img src="http://via.placeholder.com/950x480" alt="">
+            <h5>This is subsections</h5>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti similique, officiis, quis sapiente vero quae incidunt qui!
+            </p>
+          </div>
+
+          <div class="col-12 single-suggestion px-0">
+            <img src="http://via.placeholder.com/950x480" alt="">
+            <h5>This is subsections</h5>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti similique, officiis, quis sapiente vero quae incidunt qui!
+            </p>
+          </div>
+
+          <div class="col-12 single-suggestion px-0">
+            <img src="http://via.placeholder.com/950x480" alt="">
+            <h5>This is subsections</h5>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti similique, officiis, quis sapiente vero quae incidunt qui!
+            </p>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </main>
+  <footer>
+    <div class="container">
+      <div class="row m-0">
+        <div class="col">
+          Copyrights &copy; ZenShu 2018
+        </div>
+        <div class="col menu d-flex justify-content-end">
+          <ul class="p-0">
+            <li>
+              <a href="#">Pocetna</a>
+            </li>
+            <li>
+              <a href="#">O nama</a>
+            </li>
+            <li>
+              <a href="#">Pitajte nas</a>
+            </li>
+            <li>
+              <a href="#">Kontakt</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script>
+    // Open the Modal
+    function openModal() {
+      document.getElementById('myModal').style.display = "block";
+    }
+
+    // Close the Modal
+    function closeModal() {
+      document.getElementById('myModal').style.display = "none";
+    }
+
+    var slideIndex = 1;
+    showSlides(slideIndex);
+
+    // Next/previous controls
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
+
+    // Thumbnail image controls
+    function currentSlide(n) {
+      showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+      var i;
+      var slides = document.getElementsByClassName("mySlides");
+      var dots = document.getElementsByClassName("demo");
+      var captionText = document.getElementById("caption");
+      if (n > slides.length) {
+        slideIndex = 1
+      }
+      if (n < 1) {
+        slideIndex = slides.length
+      }
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+      }
+      slides[slideIndex - 1].style.display = "block";
+      dots[slideIndex - 1].className += " active";
+      captionText.innerHTML = dots[slideIndex - 1].alt;
+    }
+  </script>
+</body>
+
+</html>
