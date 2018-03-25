@@ -1,4 +1,4 @@
-import "../style/main_p.scss";
+import "../style/main_c.scss";
 
 
 $(document).ready(function(){

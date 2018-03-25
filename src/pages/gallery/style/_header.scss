@@ -1,6 +1,8 @@
 header {
   box-shadow: 2px 2px 2px #ddd;
   overflow: hidden;
+  z-index: 10;
+  position: relative;
   nav.row {
     padding: 1em 0;
     ul {

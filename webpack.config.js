@@ -6,20 +6,20 @@ var CleanWebpackPlugin = require('clean-webpack-plugin');
 var bootstrapEntryPoints = require('./webpack.bootstrap.config');
 
 var extractPlugin = new ExtractTextPlugin({
-   filename: 'main.css'
+   filename: '[name].css'
 });
 
 module.exports = {
     entry: {
       app:'./src/js/app.js',
-      // 'patreon':'./src/pages/patreon/js/app.js',
+      'patreon':'./src/pages/patreon/js/app.js',
+      'about':'./src/pages/about/js/app.js',
+      'contact':'./src/pages/contact/js/app.js',
+      'volountieer-service':'./src/pages/volountieer-service/js/app.js',
+      'gallery':'./src/pages/gallery/js/app.js',
       bootstrap:bootstrapEntryPoints.dev
     },
     output: {
-        // path: path.resolve(__dirname, 'dist'),
-        // filename: 'bundle.js',
-        // publicPath: '/dist',
-        // chunkFilename: '[id].[chunkhash].js'
         path: path.resolve(__dirname, 'dist'),
         filename: '[name].[hash:8].js',
         sourceMapFilename: '[name].[hash:8].map',
@@ -62,15 +62,13 @@ module.exports = {
                 ]
             },
             { test: /\.(woff2?|svg)$/, loader: 'url-loader?limit=10000' },
-            { test: /\.(ttf|eot)$/, loader: 'file-loader' },
-            // { test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "url-loader?limit=10000&mimetype=application/font-woff" },
-            // { test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "file-loader" }
+            { test: /\.(ttf|eot)$/, loader: 'file-loader' }
         ]
     },
     devServer:{
       contentBase: path.join(__dirname, "dist"),
       compress: true,
-      port: 4200,
+      port: 4202,
       host: '0.0.0.0',
       hot:false,
       quiet: false
@@ -79,22 +77,46 @@ module.exports = {
         extractPlugin,
         new HtmlWebpackPlugin({
           title: 'Landing',
-          // chunks: ['manifest', 'vendor', 'searchView'],
+          chunks: ['app', 'bootstrap'],
           template: 'src/index.html',// Load a custom template
           inject: 'body', // Inject all scripts into the body
           filename: 'index.html'
         }),
         new HtmlWebpackPlugin({
           title: 'Sponsors',
-          // chunks: ['manifest', 'vendor', 'ticketView'],
+          chunks: ['patreon', 'bootstrap'],
           template: 'src/pages/patreon/index.html', // Load a custom template
           inject: 'body', // Inject all scripts into the body
           filename: 'patreon.html'
         }),
-        // new HtmlWebpackPlugin("./src/[name].html", {
-        //     template: 'src/index.html',
-        //     allChunks:false
-        // }),
+        new HtmlWebpackPlugin({
+          title: 'O nama',
+          chunks: ['about', 'bootstrap'],
+          template: 'src/pages/about/index.html', // Load a custom template
+          inject: 'body', // Inject all scripts into the body
+          filename: 'about.html'
+        }),
+        new HtmlWebpackPlugin({
+          title: 'Kontakt',
+          chunks: ['contact', 'bootstrap'],
+          template: 'src/pages/contact/index.html', // Load a custom template
+          inject: 'body', // Inject all scripts into the body
+          filename: 'contact.html'
+        }),
+        new HtmlWebpackPlugin({
+          title: 'Volonterski Servis',
+          chunks: ['volountieer-service', 'bootstrap'],
+          template: 'src/pages/volountieer-service/index.html', // Load a custom template
+          inject: 'body', // Inject all scripts into the body
+          filename: 'volountieer-service.html'
+        }),
+        new HtmlWebpackPlugin({
+          title: 'Galerija',
+          chunks: ['gallery', 'bootstrap', 'carousel-gallery'],
+          template: 'src/pages/gallery/index.html', // Load a custom template
+          inject: 'body', // Inject all scripts into the body
+          filename: 'gallery.html'
+        }),
         new CleanWebpackPlugin(['dist']),
         new webpack.ProvidePlugin({
           $: "jquery",
