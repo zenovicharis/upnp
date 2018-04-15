@@ -1,0 +1,44 @@
+.volountieer-form {
+  padding:10% 0;
+  hr{
+    margin-top:0 !important;
+  }
+  .col{
+    padding: 0 12em;
+  }
+  label {
+    margin-bottom: 1px;
+  }
+  .input-group {
+    margin-bottom: 10px;
+  }
+  input,
+  textarea, select {
+    border-radius: 0px !important;
+    margin-bottom: 5px;
+  }
+
+  .question{
+    margin-bottom:20px;
+    p{
+      margin-bottom:0;
+    }
+    label {
+      font-weight:500;
+    }
+
+    button {
+      &:hover {
+        background-color:$borda;
+        color:#fff;
+      }
+    }
+  }
+}
+
+.error{
+  display: block;
+  font-size: 75%;
+  width: 100%;
+  color: red;
+}

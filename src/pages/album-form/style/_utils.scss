@@ -1,0 +1,15 @@
+%not-link{
+  &:hover{
+    text-decoration: none;
+  }
+}
+
+.overflow-hidden{
+  overflow:hidden;
+}
+
+.image-container{
+  padding: 11px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}

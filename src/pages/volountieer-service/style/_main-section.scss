@@ -1,5 +1,18 @@
 main{
-  width:65%;
-  margin:auto;
-  box-shadow:0px 2px 5px #ddd;
+  .container {
+    box-shadow: 0 9px 0px 0px white, 0 -9px 0px 0px white, 6px 0 3px -4px #ddd, -6px 0 3px -4px #ddd;
+  }
+
+  .main-container{
+    margin-bottom:-8px;
+    margin-top: -8px;
+  }
+
+}
+
+.error{
+  display: block;
+  font-size: 75%;
+  width: 100%;
+  color: red;
 }

@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=`, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>UPNP Sponzori</title>
 </head>
@@ -18,50 +18,50 @@
         <div class="col d-flex align-items-center justify-content-end">
           <ul>
             <li>
-              <a href="news.html">Vesti</a>
+              <a href="/public/news">Vesti</a>
             </li>
             <li>/</li>
             <li>
-              <a href="">Projekti</a>
+              <a href="https://http.cat/404">Projekti</a>
             </li>
             <li>/</li>
             <li>
-              <a href="volountieer-service.html">Volonterski Servis</a>
+              <a href="/volunteer">Volonterski Servis</a>
             </li>
             <li>/</li>
             <li>
-              <a href="">Blog</a>
+              <a href="/patreon">Donatori i Partneri</a>
             </li>
             <li>/</li>
             <li>
-              <a href="gallery.html">Galerija</a>
+              <a href="/gallery" class="active">Galerija</a>
             </li>
             <li>/</li>
             <li>
-              <a href="about.html">O nama</a>
+              <a href="/aboutus">O nama</a>
             </li>
             <li>/</li>
             <li>
-              <a href="contact.html">Kontakti</a>
+              <a href="/contact">Kontakti</a>
             </li>
           </ul>
           <span class="lang">
             <img src="img/eng.png" alt="">
-            <a href="">ENG</a> 
+            <a href="">ENG</a>
           </span>
-        </div> 
+        </div>
       </nav>
     </div>
   </header>
   <main>
-    <div class="container-fluid">
+    <div class="container overflow-hidden">
       <div class="row">
         <div class="col heading-custom">
           <h2>VOLONTERSKI SERVIS</h2>
         </div>
       </div>
     </div>
-    <div class="container-fluid main-container py-3">
+    <div class="container main-container py-3">
       <div class="row gallery">
         <div class="col-4 column" onclick="openModal();currentSlide(1)" class="hover-shadow">
           <img src="http://via.placeholder.com/950x480" alt="">
@@ -233,7 +233,7 @@
         </div>
       </div>
     </div>
-    <div class="container-fluid">
+    <div class="container overflow-hidden">
       <div class="row">
         <div class="col heading-custom-reverse">
           <p class="col-5">Ukoliko zelite da postanete nas donator/ka i raspitajte se o nacinma da nam se pridruzite, javite na mail adresu
@@ -271,48 +271,48 @@
   <script>
     // Open the Modal
     function openModal() {
-    document.getElementById('myModal').style.display = "block";
-  }
-
-  // Close the Modal
-  function closeModal() {
-    document.getElementById('myModal').style.display = "none";
-  }
-
-  var slideIndex = 1;
-  showSlides(slideIndex);
-
-  // Next/previous controls
-  function plusSlides(n) {
-    showSlides(slideIndex += n);
-  }
-
-  // Thumbnail image controls
-  function currentSlide(n) {
-    showSlides(slideIndex = n);
-  }
-
-  function showSlides(n) {
-    var i;
-    var slides = document.getElementsByClassName("mySlides");
-    var dots = document.getElementsByClassName("demo");
-    var captionText = document.getElementById("caption");
-    if (n > slides.length) {
-      slideIndex = 1
+      document.getElementById('myModal').style.display = "block";
     }
-    if (n < 1) {
-      slideIndex = slides.length
+
+    // Close the Modal
+    function closeModal() {
+      document.getElementById('myModal').style.display = "none";
     }
-    for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";
+
+    var slideIndex = 1;
+    showSlides(slideIndex);
+
+    // Next/previous controls
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
     }
-    for (i = 0; i < dots.length; i++) {
-      dots[i].className = dots[i].className.replace(" active", "");
+
+    // Thumbnail image controls
+    function currentSlide(n) {
+      showSlides(slideIndex = n);
     }
-    slides[slideIndex - 1].style.display = "block";
-    dots[slideIndex - 1].className += " active";
-    captionText.innerHTML = dots[slideIndex - 1].alt;
-  }
+
+    function showSlides(n) {
+      var i;
+      var slides = document.getElementsByClassName("mySlides");
+      var dots = document.getElementsByClassName("demo");
+      var captionText = document.getElementById("caption");
+      if (n > slides.length) {
+        slideIndex = 1
+      }
+      if (n < 1) {
+        slideIndex = slides.length
+      }
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+      }
+      slides[slideIndex - 1].style.display = "block";
+      dots[slideIndex - 1].className += " active";
+      captionText.innerHTML = dots[slideIndex - 1].alt;
+    }
   </script>
 </body>
 

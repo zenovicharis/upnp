@@ -28,7 +28,6 @@
       display: block;
       position: absolute;
       left: -31px;
-
       transform:skew(-20deg);
     }
 
@@ -56,4 +55,11 @@
     }
 
   }
+}
+
+.error{
+  display: block;
+  font-size: 75%;
+  width: 100%;
+  color: red;
 }

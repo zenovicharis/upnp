@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>UPNP Sponzori</title>
+</head>
+
+<body style="display:none;">
+  <header>
+    <div class="container">
+      <nav class="row">
+        <div class="col-3 d-flex align-items-center">
+          <img src="img/logoupnp.svg" id="logo" class="" alt="Organization's Logo">
+        </div>
+        <div class="col d-flex align-items-center justify-content-end">
+          <ul>
+            <li>
+              <a href="/news">Vesti</a>
+            </li>
+            <li>/</li>
+            <li>
+              <a href="/album">Gallerija</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="container overflow-hidden">
+      <div class="row">
+        <div class="col heading-custom">
+          <h2>Kreiraj Vest</h2>
+        </div>
+      </div>
+    </div>
+    <div class="container main-container py-3">
+      <div class="row volountieer-form">
+        <div class="col">
+          <h5>Vest</h5>
+          <hr> 
+          <div class="col-12">
+            <img src="{{news.images.url}}" class="w-100" alt="">
+          </div>
+
+          {% if news.id is defined %}
+          <hr> 
+          <form class="form" action="/news/update/{{ news.id }}" method="POST" id="createForm" enctype="multipart/form-data">
+          {% else %}
+          <form class="form" action="/news/create" method="POST" id="createForm" enctype="multipart/form-data">
+          {% endif %}
+            <label for="title">Naslov</label>
+            <div class="input-group">
+              <input type="text" id="title" name="title" class="form-control" value="{{news.title}}">
+            </div>
+            <label for="content">Sadrzaj</label>
+            <div class="input-group">
+              <textarea rows="9" name="content" id="content" class="form-control">{{news.content}}</textarea>
+            </div>
+            {% if news.images.url is null %}
+            <label for="upload">Slika</label>
+            <div class="input-group">
+              <input type="file" name="image" class="d-none" id="upload">
+              <button class="btn btn-default" id="upload-button">Postavi Sliku</button>
+              <p id="uploaded"></p>
+            </div>
+            {% endif %}
+            <label for="category">Kategorija</label>
+            <div class="input-group">
+              <select name="category" class="form-control">
+                <option value="">
+                  Odaberite Tip Vesti
+                </option>
+                <option value="projekt" {% if news.category=='projekt' %} selected="selected" {% endif %}>
+                  Projekt
+                </option>
+                <option value="blog" {% if news.category=='blog' %} selected="selected" {% endif %}>
+                  Blog
+                </option>
+                <option value="vest" {% if news.category=='vest' %} selected="selected" {% endif %}>
+                  Vest
+                </option>
+              </select>
+            </div>
+            <label for="language">Jezik</label>
+            <div class="input-group">
+              <select id="language" name="language" class="form-control">
+                <option value="">
+                  Odaberite Jezik
+                </option>
+                <option value="serbian" {% if news.language=='serbian' %} selected="selected" {% endif %}>
+                  Serbian
+                </option>
+                <option value="english" {% if news.language=='english' %} selected="selected" {% endif %}>
+                  English
+                </option>
+              </select>
+            </div>
+            <div class="question text-center">
+              <button class="btn btn-default btn-block" type="submit">{{ edit ? "Izmeni" : "Kreiraj" }}</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="container overflow-hidden">
+      <div class="row">
+        <div class="col heading-custom-reverse">
+          <p class="col-5">Ukoliko zelite da postanete nas donator/ka i raspitajte se o nacinma da nam se pridruzite, javite na mail adresu
+            <strong>office@udruzenjepsihologanp.org</strong>
+          </p>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <div class="container">
+      <div class="row m-0">
+        <div class="col">
+          Copyrights &copy; ZenShu 2018
+        </div>
+        <div class="col menu d-flex justify-content-end">
+          <ul class="p-0">
+            <li>
+              <a href="#">Pocetna</a>
+            </li>
+            <li>
+              <a href="#">O nama</a>
+            </li>
+            <li>
+              <a href="#">Pitajte nas</a>
+            </li>
+            <li>
+              <a href="#">Kontakt</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>

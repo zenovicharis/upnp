@@ -5,5 +5,8 @@
 }
 
 .btn-custom {
-  
+  &:hover {
+    background-color:$borda;
+    color:#fff;
+  }
 }

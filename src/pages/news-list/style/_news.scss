@@ -1,0 +1,46 @@
+.news-sections {
+  padding:1em 0;
+  position:relative;
+  .news-picture {
+    border-top:3px solid $borda;
+    padding:0;
+    img {
+      width:100%;
+    }
+  }
+  button {
+    &:hover {
+      background-color:$borda;
+      color:#fff;
+    }
+
+    &.btn-info-custom:hover {
+      background-color:cornflowerblue;
+      color:#fff;
+    }
+
+    &.btn-edit-custom:hover {
+      background-color:skyblue;
+      color:#fff;
+    }
+
+    &.btn-delete-custom:hover {
+      background-color: rgb(255, 101, 101);
+      color:#fff;
+    }
+  }
+  .date{
+    position: absolute;
+    left: -7.8%;
+    background-color: #4C1B1B;
+    color: #fff;
+    display: inline-block;
+    padding: 5px 5px;
+  }
+  .btn-group-custom{
+    position:absolute;
+    margin-bottom:0;
+    bottom:0;
+    right:1%;
+  }
+}

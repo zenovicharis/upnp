@@ -1,15 +1,16 @@
 {
-  "name": "webpack2-basics",
+  "name": "UPNP",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack-dev-server",
-    "build:prod": "webpack -p"
+    "build:dev": "webpack",
+    "build:prod": "NODE_ENV=production webpack"
   },
   "keywords": [],
-  "author": "Maximilian Schwarzmüller",
+  "author": "Haris Zenovic",
   "license": "ISC",
   "devDependencies": {
     "babel-core": "^6.24.0",
@@ -31,6 +32,7 @@
     "resolve-url-loader": "^2.3.0",
     "sass-loader": "^6.0.7",
     "style-loader": "^0.20.3",
+    "twig-loader": "^0.3.1",
     "url-loader": "^1.0.1",
     "webpack": "^2.3.2",
     "webpack-dev-server": "^2.4.2"

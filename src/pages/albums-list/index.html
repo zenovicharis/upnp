@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>UPNP Sponzori</title>
+</head>
+
+<body style="display:none;">
+  <header>
+    <div class="container">
+      <nav class="row">
+        <div class="col-3 d-flex align-items-center">
+          <img src="img/logoupnp.svg" id="logo" class="" alt="Organization's Logo">
+        </div>
+        <div class="col d-flex align-items-center justify-content-end">
+          <ul>
+            <li>
+              <a href="/news">Vesti</a>
+            </li>
+            <li>/</li>
+            <li>
+              <a class="active" href="/album">Gallerija</a>
+            </li>
+          </ul>
+
+        </div>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="container overflow-hidden">
+      <div class="row">
+        <div class="col heading-custom">
+          <h2>
+            Albumi
+            <button class="btn btn-default custom-btn-navigation float-right" onclick="createAlbums()">Kreiraj Album</button>
+          </h2>
+        </div>
+      </div>
+    </div>
+    <div class="container main-container py-3">
+      <div class="row gallery">
+
+        {% for album in albums %}
+        <div class="col-4 column" class="hover-shadow">
+          <div class="image-container">
+            <img src="{{ album.images[0].url }}" alt="">
+            <p class="text-center m-0">{{ album.title }}</p>
+            <p class="text-center m-0">
+              <a href="/album/info/{{ album.id }}" class="btn btn-default btn-custom btn-info-custom" role="button">Detaljnije</a>
+              <a href="/album/edit/{{ album.id }}" class="btn btn-default btn-custom btn-edit-custom" role="button">Izmeni</a>
+            </p>
+          </div>
+        </div>
+        {% endfor %} 
+
+      </div>
+      
+    </div>
+    <div class="container overflow-hidden">
+      <div class="row">
+        <div class="col heading-custom-reverse">
+          <p class="col-5">Ukoliko zelite da postanete nas donator/ka i raspitajte se o nacinma da nam se pridruzite, javite na mail adresu
+            <strong>office@udruzenjepsihologanp.org</strong>
+          </p>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <div class="container">
+      <div class="row m-0">
+        <div class="col">
+          Copyrights &copy; ZenShu 2018
+        </div>
+        <div class="col menu d-flex justify-content-end">
+          <ul class="p-0">
+            <li>
+              <a href="#">Pocetna</a>
+            </li>
+            <li>
+              <a href="#">O nama</a>
+            </li>
+            <li>
+              <a href="#">Pitajte nas</a>
+            </li>
+            <li>
+              <a href="#">Kontakt</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script>
+   function createAlbums(){
+     window.location = '/album/create'
+   }
+  </script>
+</body>
+
+</html>

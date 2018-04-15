@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>UPNP Sponzori</title>
+</head>
+
+<body style="display:none;">
+  <header>
+    <div class="container">
+      <nav class="row">
+        <div class="col-3 d-flex align-items-center">
+          <img src="img/logoupnp.svg" id="logo" class="" alt="Organization's Logo">
+        </div>
+        <div class="col d-flex align-items-center justify-content-end">
+          <ul>
+            <li>
+              <a href="/news" class="active">Vesti</a>
+            </li>
+            <li>/</li>
+            <li>
+              <a href="/album">Gallerija</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="container main-container py-3">
+      <div class="row news-row-heading py-2">
+        <div class="col title">
+          <p class="mb-0">
+            <span>Vesti</span>
+            <button class="btn btn-default float-right" onclick="window.location='/news/create'" id="in-title">Kreiraj Vest</button>
+          </p>
+        </div>
+      </div>
+      {% for oneNews in news %}
+      <div class="row news-sections">
+        <span class="date">{{ oneNews.created|date("M/d/Y") }}</span>
+        <div class="col-6 news-picture">
+          <img src="{{ oneNews.images.url }}" alt="">
+        </div>
+        <div class="col-6">
+          <h4>{{ oneNews.title }}</h4>
+          <p class="text-justify">
+            {{ oneNews.content|slice(0,70) }}
+          </p>
+          <p class="btn-group-custom">
+            <a href="/news/edit/{{ oneNews.id }}" class="btn btn-default btn-custom btn-info-custom" role="button">Edit</a>
+            <a href="/news/{{ oneNews.id }}" class="btn btn-default btn-custom btn-info-custom" role="button">Info</a>
+            <form action="/news/delete/{{ oneNews.id }}" method="post">
+              <button class="btn btn-default btn-custom btn-delete-custom" type="submit">Izbrisi</button>
+            </form>
+          </p>
+        </div>
+      </div>
+      {% endfor %}
+      <!-- <div class="row news-sections">
+        <span class="date">21.09.2018</span>
+        <div class="col-6 news-picture">
+          <img src="http://via.placeholder.com/950x480" alt="">
+        </div>
+        <div class="col-6">
+          <h4>Some other title heading not the main one</h4>
+          <p class="text-justify">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolores facere qui, necessitatibus vitae ex nemo expedita accusamus
+            iure quaerat rem minima totam. Earum quam nobis sed, repellat nisi nam porro.
+          </p>
+          <p class="btn-group-custom">
+            <button class="btn btn-default btn-custom btn-info-custom">Detaljnije</button>
+            <button class="btn btn-default btn-custom btn-edit-custom">Izmeni</button>
+            <button class="btn btn-default btn-custom btn-delete-custom">Izbrisi</button>
+          </p>
+        </div>
+      </div> -->
+      <!-- 
+      <div class="row news-sections">
+        <span class="date">21.09.2018</span>
+        <div class="col-6 news-picture">
+          <img src="http://via.placeholder.com/950x480" alt="">
+        </div>
+        <div class="col-6">
+          <h4>Some other title heading not the main one</h4>
+          <p class="text-justify">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolores facere qui, necessitatibus vitae ex nemo expedita accusamus
+            iure quaerat rem minima totam. Earum quam nobis sed, repellat nisi nam porro.
+          </p>
+          <p class="btn-group-custom">
+            <button class="btn btn-default btn-custom btn-info-custom">Detaljnije</button>
+            <button class="btn btn-default btn-custom btn-edit-custom">Izmeni</button>
+            <button class="btn btn-default btn-custom btn-delete-custom">Izbrisi</button>
+          </p>
+        </div>
+      </div>
+
+      <div class="row news-sections">
+        <span class="date">21.09.2018</span>
+        <div class="col-6 news-picture">
+          <img src="http://via.placeholder.com/950x480" alt="">
+        </div>
+        <div class="col-6">
+          <h4>Some other title heading not the main one</h4>
+          <p class="text-justify">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolores facere qui, necessitatibus vitae ex nemo expedita accusamus
+            iure quaerat rem minima totam. Earum quam nobis sed, repellat nisi nam porro.
+          </p>
+          <p class="btn-group-custom">
+            <button class="btn btn-default btn-custom btn-info-custom">Detaljnije</button>
+            <button class="btn btn-default btn-custom btn-edit-custom">Izmeni</button>
+            <button class="btn btn-default btn-custom btn-delete-custom">Izbrisi</button>
+          </p>
+        </div>
+      </div>
+
+      <div class="row news-sections">
+        <span class="date">21.09.2018</span>
+        <div class="col-6 news-picture">
+          <img src="http://via.placeholder.com/950x480" alt="">
+        </div>
+        <div class="col-6">
+          <h4>Some other title heading not the main one</h4>
+          <p class="text-justify">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolores facere qui, necessitatibus vitae ex nemo expedita accusamus
+            iure quaerat rem minima totam. Earum quam nobis sed, repellat nisi nam porro.
+          </p>
+          <p class="btn-group-custom">
+            <button class="btn btn-default btn-custom btn-info-custom">Detaljnije</button>
+            <button class="btn btn-default btn-custom btn-edit-custom">Izmeni</button>
+            <button class="btn btn-default btn-custom btn-delete-custom">Izbrisi</button>
+          </p>
+        </div>
+      </div>
+
+      <div class="row news-sections">
+        <span class="date">21.09.2018</span>
+        <div class="col-6 news-picture">
+          <img src="http://via.placeholder.com/950x480" alt="">
+        </div>
+        <div class="col-6">
+          <h4>Some other title heading not the main one</h4>
+          <p class="text-justify">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolores facere qui, necessitatibus vitae ex nemo expedita accusamus
+            iure quaerat rem minima totam. Earum quam nobis sed, repellat nisi nam porro.
+          </p>
+          <p class="btn-group-custom">
+            <button class="btn btn-default btn-custom btn-info-custom">Detaljnije</button>
+            <button class="btn btn-default btn-custom btn-edit-custom">Izmeni</button>
+            <button class="btn btn-default btn-custom btn-delete-custom">Izbrisi</button>
+          </p>
+        </div>
+      </div>
+       -->
+    </div>
+  </main>
+  <footer>
+    <div class="container">
+      <div class="row m-0">
+        <div class="col">
+          Copyrights &copy; ZenShu 2018
+        </div>
+        <div class="col menu d-flex justify-content-end">
+          <ul class="p-0">
+            <li>
+              <a href="#">Pocetna</a>
+            </li>
+            <li>
+              <a href="#">O nama</a>
+            </li>
+            <li>
+              <a href="#">Pitajte nas</a>
+            </li>
+            <li>
+              <a href="#">Kontakt</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script>
+    function toSingleNews() {
+      window.location = "single-news.html"
+    }
+  </script>
+</body>
+
+</html>

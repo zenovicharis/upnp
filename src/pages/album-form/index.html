@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>UPNP Sponzori</title>
+</head>
+
+<body style="display:none;">
+  <header>
+    <div class="container">
+      <nav class="row">
+        <div class="col-3 d-flex align-items-center">
+          <img src="img/logoupnp.svg" id="logo" class="" alt="Organization's Logo">
+        </div>
+        <div class="col d-flex align-items-center justify-content-end">
+          <ul>
+            <li>
+              <a href="/news">Vesti</a>
+            </li>
+            <li>/</li>
+            <li>
+              <a href="/album">Gallerija</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="container overflow-hidden">
+      <div class="row">
+        <div class="col heading-custom">
+          <h2>Kreiraj Album</h2>
+        </div>
+      </div>
+    </div>
+    <div class="container main-container py-3">
+      <div class="row volountieer-form">
+        <div class="col">
+          <h5>
+            Album
+          </h5>
+          <hr> 
+          <div class="row">
+            {% for image in album.images %}
+
+
+            <div class="col-3 my-2">
+              <div class="image-container">
+                <img src="{{ image.url }}" class="w-100 mb-1" alt="">
+                <p class="text-center m-0">
+                  <!-- <button class="btn btn-default btn-custom btn-info-custom">Detaljnije</button> -->
+                  <!-- <button class="btn btn-default btn-custom btn-edit-custom">Izmeni</button> -->
+                  <button class="btn btn-default btn-custom btn-delete-custom">Izbrisi</button>
+                </p>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+          {% if album.id is defined %}
+          <div class="row">
+            <div class="col-12">
+                <div class="input-group">
+                  <form action="/album/upload/{{album.id}}" method="POST" id="image-upload-form" enctype="multipart/form-data">
+                    <input type="file" name="image" class="d-none" id="upload" accept="image/jpeg,image/png,image/jpg">
+                    <button class="btn btn-default  float-left" id="upload-button">Postavi Sliku</button>
+                    <p id="uploaded"></p>
+                    <button class="btn btn-default  float-right" id="upload-button" type="submit">Potvrdi</button>
+                  </form>
+
+                </div>
+            </div>
+          </div>
+          <hr>
+          {% endif %}
+
+          {% if album.id is defined %}
+          <form class="form" action="/album/update/{{ album.id }}" method="POST" id="createForm" enctype="multipart/form-data">
+          {% else %}
+          <form class="form" action="/album/create" method="POST" id="createForm" enctype="multipart/form-data">
+          {% endif %}
+
+            <label for="title">Naslov</label>
+            <div class="input-group">
+              <input type="text" id="title" name="title" class="form-control" value="{{album.title}}">
+            </div>
+            <label for="english_title">Naslov na Engleskom</label>
+            <div class="input-group">
+              <input type="text" id="english_title" name="english_title" class="form-control" value="{{album.english_title}}">
+            </div>
+            {% if album.id is null %}
+            <label for="upload">Slika</label>
+            <div class="input-group">
+              <input type="file" name="image" class="d-none" id="upload" accept="image/jpeg,image/png,image/jpg">
+              <button class="btn btn-default" id="upload-button">Postavi Sliku</button>
+              <p id="uploaded"></p>
+            </div>
+            {% endif %}
+            <div class="question text-center">
+                <button class="btn btn-default btn-block">{{ edit ? "Izmeni" : "Kreiraj" }}</button>
+            </div>
+          </form>
+
+        </div>
+      </div>
+    </div>
+    <div class="container overflow-hidden">
+      <div class="row">
+        <div class="col heading-custom-reverse">
+          <p class="col-5">Ukoliko zelite da postanete nas donator/ka i raspitajte se o nacinma da nam se pridruzite, javite na mail adresu
+            <strong>office@udruzenjepsihologanp.org</strong>
+          </p>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <div class="container">
+      <div class="row m-0">
+        <div class="col">
+          Copyrights &copy; ZenShu 2018
+        </div>
+        <div class="col menu d-flex justify-content-end">
+          <ul class="p-0">
+            <li>
+              <a href="#">Pocetna</a>
+            </li>
+            <li>
+              <a href="#">O nama</a>
+            </li>
+            <li>
+              <a href="#">Pitajte nas</a>
+            </li>
+            <li>
+              <a href="#">Kontakt</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>
