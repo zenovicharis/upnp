@@ -1,0 +1,59 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0')
+  meta(http-equiv='X-UA-Compatible' content='ie=edge')
+  title UPNP Sponzori
+if isProd == 'prod'
+  include ./../../parts/header-public-eng.pug
+else
+  include ./../../parts/header-public-eng-local.pug
+main
+  .container.main-container
+    .row
+      #map.col.p-0
+        iframe(src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2911.404445351405!2d20.507574651464683!3d43.13803567904001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x475628168ea4cb55%3A0x1d62fe2b15af789f!2sMitrova%C4%8Dka%2C+Novi+Pazar%2C+Serbia!5e0!3m2!1sen!2smk!4v1521983730078' width='1200' height='600' frameborder='0' style='border:0' allowfullscreen='')
+        .col-6.info
+          h1.p-0 How to reach us?
+          p
+            strong Office
+          p Mitrovacka BB
+          p Novi Pazar 36300
+          p
+            strong Phone:
+          p +38163 18-90-130
+          p +381(0)20/600-363
+          p
+            strong Email
+          p office@udruzenjepsihologanp.org
+          p udruzenje.psihologa.np@gmail.com
+    form(action='' id='contact-form' method='POST')
+      .row.contact-form
+        .col-12
+          h1.text-right.my-4 Get in touch with us
+        .col-6
+          label(for='name') Name*
+          .input-group
+            input#name.form-control(type='text' name='name')
+          label(for='email') Email*
+          .input-group
+            input#email.form-control(type='email' name='email')
+          label(for='phone') Phone Number
+          .input-group
+            input#phone.form-control(type='text' name='phone')
+          label(for='company') Company Name
+          .input-group
+            input#company.form-control(type='text' name='company')
+        .col-6
+          label(for='title') Title*
+          .input-group
+            input#title.form-control(type='text' name='title')
+          label(for='message') Message*
+          .input-group
+            textarea.form-control(aria-label='With textarea' rows='7' name='message' id='message')
+        .col-12.buton-container
+          button.btn.btn-default.btn-custom Send
+if isProd == 'prod'
+  include ./../../parts/footer-public-eng.pug
+else
+  include ./../../parts/footer-public-eng-local.pug

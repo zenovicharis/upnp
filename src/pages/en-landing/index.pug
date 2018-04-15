@@ -1,0 +1,114 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0')
+  meta(http-equiv='X-UA-Compatible' content='ie=edge')
+  link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css')
+  title UPNP
+if isProd == 'prod'
+  include ./../../parts/header-public-eng.pug
+else
+  include ./../../parts/header-public-eng-local.pug
+main
+  .container.main.px-0
+    // Slider ROW
+    .row.m-0
+      #slider.carousel.slide.col.p-0(data-ride='carousel')
+        // Indicators
+        ul.carousel-indicators.justify-content-start.custom-indicators
+          li.active(data-target='#slider' data-slide-to='0')
+          li(data-target='#slider' data-slide-to='1')
+          li(data-target='#slider' data-slide-to='2')
+        // The slideshow
+        .carousel-inner
+          .carousel-item.active
+            img(src='img/slajd1.jpg' alt='Los Angeles')
+            p.strap-main.mb-0
+              span Headline Title
+          .carousel-item
+            img(src='img/slajd2.jpg' alt='Chicago')
+            p.strap-main.mb-0
+              span Headline Title
+          .carousel-item
+            img(src='img/slajd3.jpg' alt='New York')
+            p.strap-main.mb-0
+              span Headline Title
+        // Fixed image to slider
+        img#logo-slider(src='img/logoslider.svg' alt="Organization's Logo")
+        // Left and right controls
+        //
+          <a class="carousel-control-prev" href="#slider" data-slide="prev">
+          <span class="carousel-control-prev-icon"></span>
+          </a>
+          <a class="carousel-control-next" href="#slider" data-slide="next">
+          <span class="carousel-control-next-icon"></span>
+          </a>
+    // END Slider ROW
+    // News ROW
+    .row.main-section-titile.mx-3.my-4
+      .col.news
+        p.mb-0
+          span News
+      .col.text-right.mt-2.link
+        p.mb-0
+          | For more, please click
+          a(href='news.html')  here.
+    .row.d-flex.justify-content-around.mx-0.mb-4#news-block
+      
+    // END News ROW
+    // Donate Banner ROW
+    .row.donate-banner.py-2.m-0
+      .col-2.pr-4
+        img#box(src='img/giftboxdonate.svg' alt='Donate Box')
+      .col-5.row.mt-4.mb-1
+        .col-6.px-0
+          h3 DONATE
+          p Payment with a foreign account
+        .col-6.px-0
+          h3 DONATE
+          p Payment with a local account
+        p
+          | Ukoliko zelite da postanete nas donator/ka raspitajte se o nacinima da nam se pridruzite, javite se na e-mail adresu
+          strong office@udruzenjepsihologanp.org
+      .col-5.d-flex.align-items-center
+        h2#patreons.custom-block-banner.m-auto.p-4 DONORS AND PARTNERS
+    // END Donate Banner ROW
+    // About Us ROW
+    .row.about-us.py-2.m-0
+      .col-2.logo-beli.d-flex.vertical-align-center
+        img(src='img/LOGOBELI.svg' alt='')
+      .col-5.pl-0
+        p.text-justify
+          strong.highlighted Association of Psychologists Novi Pazar (UPNP)
+          |  is non-government and non-profit organization with a mission or promotive inclusive approach 
+          |  to people with disabilities and disorders. Association is registered on June 30th , 2014. In 
+          |  Novi Pazar, as an organization working on providing support for individuals with disabilities 
+          |  and disorders, as well as other marginalized social groups and providing social protection services.
+          | Therefore, the main goal of the association is providing help for people, especially children and young
+          | individuals with disabilities and disorders, and their families, through wide spectrum of activities,
+          | as well as working or systematic and institutional solutions.
+      .col-5
+        p.strap-reverse.mb-0
+          span About us
+        p.text-justify.relative
+          | Following the &quot;Equal opportunities for all&quot; vision, the Association is working on building a 
+          |  civil society based on equal possibilities and rights of all citizens, without violence and discrimination, 
+          |  society based of respect of human rights despite differences, on social inclusion and responsibility.
+    // END About Us ROW
+    // Info ROW
+    .row.m-0
+      .col-6.m-0.info-data
+        p.info OFFICE
+        p.info Mitrovacka BB
+        p.info.mb-2 Novi Pazar, 36300
+        p.info Phone:+381631890130
+        p.info.mb-2 +381(0)20600363
+        p.info E-mail:office@udruzenjepsihologanp.org
+        p.info udruzenje.psihologa.np@gmail.com
+      .col-6.overflow-h.map
+        iframe(src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2911.4044453514034!2d20.50757465146469!3d43.13803567904003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x475628168ea4cb55%3A0x1d62fe2b15af789f!2sMitrova%C4%8Dka%2C+Novi+Pazar%2C+Serbia!5e0!3m2!1sen!2smk!4v1521295900476' width='600' height='450' frameborder='0' style='border:0' allowfullscreen='')
+    // END Info ROW
+if isProd == 'prod'
+  include ./../../parts/footer-public-eng.pug
+else
+  include ./../../parts/footer-public-eng-local.pug

@@ -1,0 +1,24 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0')
+  meta(http-equiv='X-UA-Compatible' content='ie=edge')
+  title UPNP Sponzori
+if isProd == 'prod'
+  include ./../../parts/header-public-eng.pug
+else
+  include ./../../parts/header-public-eng-local.pug
+main
+  .container.main-container.py-3
+    .row.news-row-heading.py-2
+      .col.title
+        p.mb-0
+          span News
+if isProd == 'prod'
+  include ./../../parts/footer-public-eng.pug
+else
+  include ./../../parts/footer-public-eng-local.pug
+script.
+  function toSingleNews() {
+  window.location = "single-news.html"
+  }

@@ -34,12 +34,21 @@ module.exports = {
     'albums-list': './src/pages/albums-list/js/app.js',
     'album-form': './src/pages/album-form/js/app.js',
     'album-form-info': './src/pages/album-form-info/js/app.js',
+
+    'en-patreon': './src/pages/en-patreon/js/app.js',
+    'en-about': './src/pages/en-about/js/app.js',
+    'en-contact': './src/pages/en-contact/js/app.js',
+    'en-volountieer-service': './src/pages/en-volountieer-service/js/app.js',
+    'en-gallery': './src/pages/en-gallery/js/app.js',
+    'en-news': './src/pages/en-news/js/app.js',
+    'en-single-news': './src/pages/en-single-news/js/app.js',
+    'en-landing': './src/pages/en-landing/js/app.js',
     bootstrap: bootstrapEntryPoints.dev
   },
   output: {
     path: pathLocal,
     filename: '[name]/[name].[hash:8].js',
-    publicPath: isProd ? '/dist/': '',
+    publicPath: isProd ? '/dist/': undefined,
     sourceMapFilename: '[name]/[name].[hash:8].map',
     chunkFilename: '[name]/[id].[hash:8].js'
   },
@@ -60,6 +69,22 @@ module.exports = {
         })
       },
       {
+        test: /\.css$/,
+        use: extractPlugin.extract({
+          use: ['css-loader']
+        })
+      },
+      {
+        test: /\.pug$/,
+        loaders: ['html-loader',{loader: 'pug-html-loader',
+        options: {
+          // options to pass to the compiler same as: https://pugjs.org/api/reference.html 
+          data: { isProd: isProd ? 'prod' : ''} // set of data to pass to the pug render. 
+        }
+      }],
+
+      },
+      {
         test: /\.html$/,
         use: ['html-loader']
       },
@@ -70,7 +95,7 @@ module.exports = {
           options: {
             name: '[name].[ext]',
             outputPath: isProd ? 'assets/img/': 'img/',
-            publicPath: isProd ?  '/dist/assets/img/': 'img/'
+            publicPath: isProd ?  '/dist/assets/img/': '/img/'
           }
         }]
       },
@@ -89,13 +114,26 @@ module.exports = {
       {
         test: /\.(ttf|eot)$/,
         loader: 'file-loader'
+      },
+      {
+        test: /\.gif$/,
+        loader: 'file-loader'
+      },
+      {
+        test: /\.ico$/,
+        loader: 'url-loader',
+        query: { 
+          limit: 1,
+          name: '[name].[ext]',
+        },
       }
+      
     ]
   },
   devServer: {
     contentBase: path.join(__dirname, "dist"),
     compress: true,
-    port: 4202,
+    port: 4200,
     host: '0.0.0.0',
     hot: false,
     quiet: false
@@ -105,23 +143,23 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: 'Landing',
       chunks: ['app', 'bootstrap'],
-      template: 'src/index.html', // Load a custom template
+      template: 'src/index.pug', // Load a custom template
       inject: 'body', // Inject all scripts into the body
       minify: false,
-      filename: 'index.html'
+      // filename: 'index.html'
     }),
     new HtmlWebpackPlugin({
-      title: 'Sponsors',
+      title: 'Sponzori',
       chunks: ['patreon', 'bootstrap'],
-      template: 'src/pages/patreon/index.html', // Load a custom template
+      template: 'src/pages/patreon/index.pug', // Load a custom template
       inject: 'body', // Inject all scripts into the body
       minify: false,
       filename: 'patreon/patreon.html'
     }),
     new HtmlWebpackPlugin({
-      title: 'O nama',
+      title: "O nama",
       chunks: ['about', 'bootstrap'],
-      template: 'src/pages/about/index.html', // Load a custom template
+      template: 'src/pages/about/index.pug', // Load a custom template
       inject: 'body', // Inject all scripts into the body
       minify: false,
       filename: 'about/about.html'
@@ -129,7 +167,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: 'Kontakt',
       chunks: ['contact', 'bootstrap'],
-      template: 'src/pages/contact/index.html', // Load a custom template
+      template: 'src/pages/contact/index.pug', // Load a custom template
       inject: 'body', // Inject all scripts into the body
       minify: false,
       filename: 'contact/contact.html'
@@ -137,7 +175,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: 'Volonterski Servis',
       chunks: ['volountieer-service', 'bootstrap'],
-      template: 'src/pages/volountieer-service/index.html', // Load a custom template
+      template: 'src/pages/volountieer-service/index.pug', // Load a custom template
       inject: 'body', // Inject all scripts into the body
       minify: false,
       filename: 'volountieer-service/volountieer-service.html'
@@ -145,7 +183,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: 'Galerija',
       chunks: ['gallery', 'bootstrap', 'carousel-gallery'],
-      template: 'src/pages/gallery/index.html', // Load a custom template
+      template: 'src/pages/gallery/index.pug', // Load a custom template
       inject: 'body', // Inject all scripts into the body
       minify: false,
       filename: 'gallery/gallery.html'
@@ -153,7 +191,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: 'Vest',
       chunks: ['news', 'bootstrap'],
-      template: 'src/pages/news/index.html', // Load a custom template
+      template: 'src/pages/news/index.pug', // Load a custom template
       inject: 'body', // Inject all scripts into the body
       minify: false,
       filename: 'news/news.html'
@@ -161,7 +199,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: 'Vest',
       chunks: ['single-news', 'bootstrap'],
-      template: 'src/pages/single-news/index.html', // Load a custom template
+      template: 'src/pages/single-news/index.pug', // Load a custom template
       inject: 'body', // Inject all scripts into the body
       minify: false,
       filename: 'single-news/single-news.html'
@@ -221,6 +259,73 @@ module.exports = {
       inject: 'body', // Inject all scripts into the body
       minify: false,
       filename: isProd ? 'album-form-info/album-form-info.html.twig' : 'album-form-info/album-form-info.html'
+    }),
+
+
+
+    new HtmlWebpackPlugin({
+      title: 'Landing',
+      chunks: ['en-landing', 'bootstrap'],
+      template: 'src/pages/en-landing/index.pug', // Load a custom template
+      inject: 'body', // Inject all scripts into the body
+      minify: false,
+      filename: 'en-landing/en-landing.html'
+    }),
+    new HtmlWebpackPlugin({
+      title: 'Sponsors',
+      chunks: ['en-patreon', 'bootstrap'],
+      template: 'src/pages/en-patreon/index.pug', // Load a custom template
+      inject: 'body', // Inject all scripts into the body
+      minify: false,
+      filename: 'en-patreon/en-patreon.html'
+    }),
+    new HtmlWebpackPlugin({
+      title: 'O nama',
+      chunks: ['en-about', 'bootstrap'],
+      template: 'src/pages/en-about/index.pug', // Load a custom template
+      inject: 'body', // Inject all scripts into the body
+      minify: false,
+      filename: 'en-about/en-about.html'
+    }),
+    new HtmlWebpackPlugin({
+      title: 'Kontakt',
+      chunks: ['en-contact', 'bootstrap'],
+      template: 'src/pages/en-contact/index.pug', // Load a custom template
+      inject: 'body', // Inject all scripts into the body
+      minify: false,
+      filename: 'en-contact/en-contact.html'
+    }),
+    new HtmlWebpackPlugin({
+      title: 'Volonterski Servis',
+      chunks: ['en-volountieer-service', 'bootstrap'],
+      template: 'src/pages/en-volountieer-service/index.pug', // Load a custom template
+      inject: 'body', // Inject all scripts into the body
+      minify: false,
+      filename: 'en-volountieer-service/en-volountieer-service.html'
+    }),
+    new HtmlWebpackPlugin({
+      title: 'Galerija',
+      chunks: ['en-gallery', 'bootstrap', 'carousel-gallery'],
+      template: 'src/pages/en-gallery/index.pug', // Load a custom template
+      inject: 'body', // Inject all scripts into the body
+      minify: false,
+      filename: 'en-gallery/en-gallery.html'
+    }),
+    new HtmlWebpackPlugin({
+      title: 'Vest',
+      chunks: ['en-news', 'bootstrap'],
+      template: 'src/pages/en-news/index.pug', // Load a custom template
+      inject: 'body', // Inject all scripts into the body
+      minify: false,
+      filename: 'en-news/en-news.html'
+    }),
+    new HtmlWebpackPlugin({
+      title: 'Vest',
+      chunks: ['en-single-news', 'bootstrap'],
+      template: 'src/pages/en-single-news/index.html', // Load a custom template
+      inject: 'body', // Inject all scripts into the body
+      minify: false,
+      filename: 'en-single-news/en-single-news.html'
     }),
     new CleanWebpackPlugin(['dist']),
     new webpack.ProvidePlugin({

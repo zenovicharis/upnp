@@ -1,0 +1,55 @@
+header {
+  box-shadow: 2px 2px 2px #ddd;
+  overflow: hidden;
+  z-index: 10;
+  position: relative;
+  nav.row {
+    padding: 1em 0;
+    ul {
+      padding:0;
+      margin:0;
+      list-style-type: none;
+      padding: 1em 0;
+      li {
+        display:inline-block;
+        color: $svelija-krem;
+        font-weight: 800;
+        text-transform: uppercase;
+        // font-style: italic;
+        a {
+          @extend %not-link;
+          &:hover{
+            color: $svelija-krem;
+          }
+          color: $borda;
+          &.active{
+            color:$svelija-krem;
+          }
+        }
+      }
+      
+    }
+    .lang{
+      position: absolute;
+      right: -68%;
+      img{
+        width: 3.5%;
+      }
+      a{
+        color: $borda;
+        font-weight:600;
+        &:hover{
+          text-decoration:none;
+          
+        }
+      }
+    }
+    img#logo{
+      width:52%;
+      transition:all 1s ease 0s;
+      &:hover{
+        transform: rotateX(150deg);
+      }
+    }
+  }
+}

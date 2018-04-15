@@ -63,80 +63,20 @@
         </div>
       </div>
 
-      <div class="row news-sections">
-        <span class="date">21.09.2018</span>
+      <div class="row news-sections" v-for="news in newsList">
+        <span class="date">{{news.created}}</span>
         <div class="col-6 news-picture">
-          <img src="http://via.placeholder.com/950x480" alt="">
+          <img src="{{news.images.url}}" alt="">
         </div>
         <div class="col-6">
-          <h4>Some other title heading not the main one</h4>
+          <h4>{{news.title}}</h4>
           <p class="text-justify">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolores facere qui, necessitatibus vitae ex nemo expedita accusamus
-            iure quaerat rem minima totam. Earum quam nobis sed, repellat nisi nam porro.
+              {{news.content}}
           </p>
           <button class="btn btn-default btn-custom" onclick="toSingleNews()">Procitaj jos</button>
         </div>
       </div>
 
-      <div class="row news-sections">
-        <span class="date">21.09.2018</span>
-        <div class="col-6 news-picture">
-          <img src="http://via.placeholder.com/950x480" alt="">
-        </div>
-        <div class="col-6">
-          <h4>Some other title heading not the main one</h4>
-          <p class="text-justify">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolores facere qui, necessitatibus vitae ex nemo expedita accusamus
-            iure quaerat rem minima totam. Earum quam nobis sed, repellat nisi nam porro.
-          </p>
-          <button class="btn btn-default btn-custom" onclick="toSingleNews()">Procitaj jos</button>
-        </div>
-      </div>
-
-      <div class="row news-sections">
-        <span class="date">21.09.2018</span>
-        <div class="col-6 news-picture">
-          <img src="http://via.placeholder.com/950x480" alt="">
-        </div>
-        <div class="col-6">
-          <h4>Some other title heading not the main one</h4>
-          <p class="text-justify">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolores facere qui, necessitatibus vitae ex nemo expedita accusamus
-            iure quaerat rem minima totam. Earum quam nobis sed, repellat nisi nam porro.
-          </p>
-          <button class="btn btn-default btn-custom" onclick="toSingleNews()">Procitaj jos</button>
-        </div>
-      </div>
-
-      <div class="row news-sections">
-        <span class="date">21.09.2018</span>
-        <div class="col-6 news-picture">
-          <img src="http://via.placeholder.com/950x480" alt="">
-        </div>
-        <div class="col-6">
-          <h4>Some other title heading not the main one</h4>
-          <p class="text-justify">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolores facere qui, necessitatibus vitae ex nemo expedita accusamus
-            iure quaerat rem minima totam. Earum quam nobis sed, repellat nisi nam porro.
-          </p>
-          <button class="btn btn-default btn-custom" onclick="toSingleNews()">Procitaj jos</button>
-        </div>
-      </div>
-
-      <div class="row news-sections">
-        <span class="date">21.09.2018</span>
-        <div class="col-6 news-picture">
-          <img src="http://via.placeholder.com/950x480" alt="">
-        </div>
-        <div class="col-6">
-          <h4>Some other title heading not the main one</h4>
-          <p class="text-justify">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolores facere qui, necessitatibus vitae ex nemo expedita accusamus
-            iure quaerat rem minima totam. Earum quam nobis sed, repellat nisi nam porro.
-          </p>
-          <button class="btn btn-default btn-custom" onclick="toSingleNews()">Procitaj jos</button>
-        </div>
-      </div>
     </div>
   </main>
   <footer>

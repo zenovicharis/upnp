@@ -1,0 +1,86 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0')
+  meta(http-equiv='X-UA-Compatible' content='ie=edge')
+  title UPNP Sponzori
+
+if isProd == 'prod'
+  include ./../../parts/header-public-eng.pug
+else
+  include ./../../parts/header-public-eng-local.pug
+main
+  .container.about-main
+    .row.py-2
+      .col.title
+        p.mb-0
+          span ABOUT US
+      .col-12.about-text
+        p.text-justify
+          |  Association of Psychologists Novi Pazar (UPNP) is non-government and non-profit organization with a mission or 
+          |  promotive inclusive approach to people with disabilities and disorders. Association is registered on June 30th ,
+          |  2014. In Novi Pazar, as an organization working on providing support for individuals with disabilities and disorders,
+          |  as well as other marginalized social groups and providing social protection services. Therefore, the main goal of the 
+          |  association is providing help for people, especially children and young individuals with disabilities and disorders, 
+          |  and their families, through wide spectrum of activities, as well as working or systematic and institutional solutions.
+        p.text-justify
+          |  Following the &qout;Equal opportunities for all&qout;vision, the Association is working on building a civil society 
+          |  based on equal possibilities and rights of all citizens, without violence and discrimination, society based of respect of human rights despite differences, on social inclusion and responsibility.
+      .col.about-text
+        h2.text-right Goals of the Association:
+        ul
+          li
+            | Enhancement of life quality, especially of young adults and children with disabilities and
+            | their families, by offering social protection services
+          li
+            | Supporting community in developing understanding of needs, accepting possibilities
+            | , and providing equal opportunities for everyone’s development
+          li
+            | Development of support services which encourage inclusion of members of sensitive social 
+            | groups in everyday community life, by developing their capacities and inciting their independence.
+        h2 Areas of Association’s operations:
+        p UPNP conducts activities within a few program lines:
+        ul
+          li
+            | Social protection services:
+            ul
+              li Personal assistant for child
+              li Personal assistance
+          li Early treatment of children with disabilities and disorders
+          li Counseling-therapy and social-educative services
+          li Youth psychological counseling
+          li
+            | Strengthening young people with disorders and disabilities through informal education programs
+          li Antidiscrimination and human rights
+      .col-12.contacts
+        p
+          | Official name:
+          strong   Association of Psychologists Novi Pazar Udruženje psihologa Novi Pazar
+        p
+          | Abbreviation name:
+          strong UPNP
+        p
+          | Address:
+          strong Mitrovacka bb, 36300 Novi Pazar, SERBIA
+        p
+          | Identification number:
+          strong 28149859
+        p
+          | PIB:
+          strong 108604319
+        p
+          | Dinar bank account number:
+          strong 205-0000000212284-41, Komercijalna banka AD Beograd
+        p
+          | Foreign currency bank account:
+          strong 205-0070800045892-89, Komercijalna banka AD Beograd
+        p
+          | IBAN:
+          strong RS35205007080004589289
+        p
+          | SWIFT:
+          strong KOBBRSBG
+if isProd == 'prod'
+  include ./../../parts/footer-public-eng.pug
+else
+  include ./../../parts/footer-public-eng-local.pug

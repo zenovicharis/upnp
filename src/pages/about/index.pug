@@ -1,0 +1,86 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0')
+  meta(http-equiv='X-UA-Compatible' content='ie=edge')
+
+if isProd == 'prod'
+  include ./../../parts/header-public-srb.pug
+else
+  include ./../../parts/header-public-srb-local.pug
+main
+  .container.about-main
+    .row.py-2
+      .col.title
+        p.mb-0
+          span O UDRUZENJU
+      .col-12.about-text
+        p.text-justify
+          | Udruzenje psihologa Novi Pazar(UPNP) je nevladina i neprofitabilna organizacija cija se misija sastoji u promovisanju inkluzivnog
+          | pristupa osobama sa smetnjama u razvoju i invaliditetom. Udruzenje je registrovano 30. juna 2014 godine u Novom
+          | Pazaru, kao organizacija koja radi pruzanju podrske osobama sa smetnjama u razvoju i invaliditetom kao i ostalim
+          | marginalizovanim drustvenim grupama i sprovodjenju usluga socijalne zastite. Stoga, glavni razlog postojanja
+          | udruzenja jeste pruzanje pomoci osobama, a narocito deci i mladima sa smetnjama u razvoju i invaliditetom i njihovim
+          | porodicama, kroz siroki spektar aktivnosti, kao i delovanje sistemskim i institucionalnim resenjima
+        p.text-justify
+          | Sledeci viziju &quot;Jednake mogucnosti za sve&quot;, Udruzenje radi na izgradnji civilnog drustva zasnovanog na jednakim mogucnostima
+          | i ravnopravnosti svih gradjana i gradjanki, nenasilju, nediskriminaciji, postovanju ljudskih prava bez obzira
+          | na razlicitosti, drustvenoj ukljucenosti i odgovornosti
+      .col.about-text
+        h2.text-right Ciljevi Udruzenja su:
+        ul
+          li
+            | unapredjenje kvaliteta zivota osoba, a posebno dece i mladih sa smetnjama u razvoju invaliditetom i njihovih
+            | porodica, sprovodjenjem usloga socijalne zastite.
+          li
+            | podrska razvoju zajednice za razumevanje potreba, prihvatanje mogucnosti i obezbedjivanje jednakih sansi za razvoj
+            | svakog pojedinca
+          li
+            | razvoj usluga podrske koje doprinose ukljucivanje pripadnika osetljivih drustvenih grupa u svakodnevni zivot
+            | zajednice uz razvoj njihovih kapaciteta i podsticanje samostalnosti
+        h2 Oblast delovanja organizacije:
+        p UPNP realizuje aktivnosti u okviru nekoliko programskih linija
+        ul
+          li
+            | Usloge socijalne zastite
+            ul
+              li Licni pratilac deteta
+              li Personalna asistencija
+          li Rani tretman dece sa smetnjama u razvoju i invaliditetom
+          li Savetodavno-terapijske i socijalno-edukativne usluge
+          li Omladinsko psiholosko savetovaliste
+          li
+            | Osnaznivanje mladih sa smetnjama u razvoju i invaliditetom kroz programe neformalnog obrazovanja
+          li Antidiskriminacija i ljudska prava
+      .col-12.contacts
+        p
+          | Zvanican naziv:
+          strong  Udruzenje psihologa Novi Pazar
+        p
+          | Skraceni naziv:
+          strong UPNP
+        p
+          | Adresa:
+          strong Mitrovacka bb, 36300 Novi Pazar, SRBIJA
+        p
+          | Maticni broj:
+          strong 28149859
+        p
+          | PIB:
+          strong 108604319
+        p
+          | Broj dinarskog ziro racuna:
+          strong 205-0000000212284-41, Komercijalna banka AD Beograd
+        p
+          | Broj deviznog ziro racuna:
+          strong 205-0070800045892-89, Komercijalna banka AD Beograd
+        p
+          | IBAN:
+          strong RS35205007080004589289
+        p
+          | SWIFT:
+          strong KOBBRSBG
+if isProd == 'prod'
+  include ./../../parts/footer-public-srb.pug
+else
+  include ./../../parts/footer-public-srb-local.pug

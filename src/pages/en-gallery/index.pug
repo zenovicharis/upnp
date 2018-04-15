@@ -1,0 +1,27 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0')
+  meta(http-equiv='X-UA-Compatible' content='ie=edge')
+  title UPNP Sponzori
+if isProd == 'prod'
+  include ./../../parts/header-public-eng.pug
+else
+  include ./../../parts/header-public-eng-local.pug
+main
+  .container.overflow-hidden
+    .row
+      .col.heading-custom
+        h2 VOLONTERSKI SERVIS
+  .container.main-container.py-3
+    .row.gallery
+  .container.overflow-hidden
+    .row
+      .col.heading-custom-reverse
+        p.col-5
+          | Ukoliko zelite da postanete nas donator/ka i raspitajte se o nacinma da nam se pridruzite, javite na mail adresu
+          strong office@udruzenjepsihologanp.org
+if isProd == 'prod'
+  include ./../../parts/footer-public-eng.pug
+else
+  include ./../../parts/footer-public-eng-local.pug

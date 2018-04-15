@@ -1,0 +1,195 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0')
+  meta(http-equiv='X-UA-Compatible' content='ie=edge')
+  title UPNP Sponzori
+if isProd == 'prod'
+  include ./../../parts/header-public-eng.pug
+else
+  include ./../../parts/header-public-eng-local.pug
+main
+  .container.overflow-hidden
+    .row
+      .col.heading-custom
+        h2 VOLONTERSKI SERVIS
+  .container.main-container.py-3
+    .row.volountieer-form
+      .col
+        h5 Prijava Volontera
+        p.text-justify
+          | Pred vama je upitnik za u&ccaron;lanjenje u bazu volonterskog servisa Udru&zcaron;enja psihologa u Novom Pazaru. Upitnik se sastoji iz
+          | 3 celine: Li&ccaron;ni podaci, Ve&scaron;tine, Interesovanja. Potrudite se da &scaron;to preciznije odgovorite na postavljena pitanja
+          | kako bismo mogli da vam ponudimo najadkvatniji volonterski sta&zcaron;. Polja ozna&ccaron;ena sa * su obavezna
+        hr
+        form#volontieer-form
+          label(for='ime_prezime') Ime i Prezime*
+          .input-group
+            input#ime_prezime.form-control(type='text' name='ime_prezime')
+          label(for='datum') Datum Rodjenja*
+          .input-group
+            input#datum.form-control(type='date' name='datum')
+          label(for='adresa') Adresa Prebivalista
+          .input-group
+            input#adresa.form-control(type='text' name='adresa')
+          label(for='grad') Grad
+          .input-group
+            input#grad.form-control(type='text' name='grad')
+          label(for='phone') Telefon
+          .input-group
+            input#phone.form-control(type='text' name='phone')
+          label(for='telefon') Email
+          .input-group
+            input#telefon.form-control(type='text' name='telefon')
+          h3 Vestine
+          hr
+          label(for='str_sprema') Stru&ccaron;na sprema *
+          .input-group
+            select#str_sprema.form-control(name='str_sprema')
+              option(value='I Stepen (četiri razreda osnovne škole)' selected='' style='') I Stepen (&ccaron;etiri razreda osnovne &scaron;kole)
+              option(value='II Stepen - (osnovna škola)      ' style='') II Stepen - (osnovna &scaron;kola) 
+              option(value='III Stepen - (srednja škola u trogodišnjem trajanju)     ' style='') III Stepen - (srednja &scaron;kola u trogodi&scaron;njem trajanju) 
+              option(value='IV Stepen - (srednja škola u četvorogodišnjem trajanju)      ' style='') IV Stepen - (srednja &scaron;kola u &ccaron;etvorogodi&scaron;njem trajanju) 
+              option(value='V Stepen - (viša škola u jednogodišnjem trajanju)        ' style='') V Stepen - (vi&scaron;a &scaron;kola u jednogodi&scaron;njem trajanju) 
+              option(value='VI Stepen - (viša škola)' style='') VI Stepen - (vi&scaron;a &scaron;kola)
+              option(value='VII Stepen - (fakultet)      ' style='') VII Stepen - (fakultet) 
+              option(value='VII-1 Stepen - (specijalističke studije / master)        ' style='') VII-1 Stepen - (specijalisti&ccaron;ke studije / master) 
+              option(value='VII-2 Stepen - (magistratura)' style='') VII-2 Stepen - (magistratura)
+              option(value='VIII Stepen - (doktorat)' style='') VIII Stepen - (doktorat)
+          label(for='zanimanje') Zanimanje
+          .input-group
+            input#zanimanje.form-control(type='text' name='zanimanje')
+          label(for='hobi') Hobi,interesi,ve&scaron;tine*
+          .input-group
+            textarea#message.form-control(name='hobi' required='required' rows='8')
+          label(for='iskustvo') Dosada&scaron;nje volontersko iskustvo*
+          .input-group
+            textarea#iskustvo.form-control(name='iskustvo' rows='8')
+          h3 Volontersko interesovanje
+          hr
+          .interest
+            p Za koje od navedenih podru&ccaron;ja volonterskog rada ste zainteresovani? *
+            input#help(type='checkbox' name='podrucje_rada[]' value='Psihološka pomoć deci i mladima')
+            label(for='help') &nbsp; Psiholo&scaron;ka pomo&cacute; deci i mladima
+            br
+            input#social(type='checkbox' name='podrucje_rada[]' value='Socijalne aktivnosti za decu i mlade')
+            label(for='social') &nbsp; Socijalne aktivnosti za decu i mlade
+            br
+            input#addictivnes(type='checkbox' name='podrucje_rada[]' value='Prevencija zavisnosti')
+            label(for='addictivnes') &nbsp; Prevencija zavisnosti
+            br
+            input#mental-health(type='checkbox' name='podrucje_rada[]' value='Promocija mentalnog zdravlja')
+            label(for='mental-health') &nbsp; Promocija mentalnog zdravlja
+            br
+            input#personal-assistence(type='checkbox' name='podrucje_rada[]' value='Personalna asistencija za osobe sa invaliditetom')
+            label(for='personal-assistence') &nbsp; Personalna asistencija za osobe sa invaliditetom
+            br
+            input#care(type='checkbox' name='podrucje_rada[]' value='Briga o starijima')
+            label(for='care') &nbsp; Briga o starijima
+            br
+            input#ecological(type='checkbox' name='podrucje_rada[]' value='Ekološka psihologija')
+            label(for='ecological') &nbsp; Ekolo&scaron;ka psihologija
+            br
+            input#gipsy-help(type='checkbox' name='podrucje_rada[]' value='')
+            label(for='gipsy-help') &nbsp; Inkluzija Roma
+            br
+            input#advice(type='checkbox' name='podrucje_rada[]' value='Inkluzija Roma')
+            label(for='advice') &nbsp; Omladinsko savetovali&scaron;te
+            br
+            input#violence(type='checkbox' name='podrucje_rada[]' value='Prevencija nasilja')
+            label(for='violence') &nbsp; Prevencija nasilja
+            br
+            input#equality(type='checkbox' name='podrucje_rada[]' value='Ravnopravnost i tolerancija')
+            label(for='equality') &nbsp; Ravnopravnost i tolerancija
+            br
+            input#cirtical-interventions(type='checkbox' name='podrucje_rada[]' value='Intervencije u krizi')
+            label(for='cirtical-interventions') &nbsp; Intervencije u krizi
+            br
+          .question
+            p Koje ste konkretne poslove spremni da obavljate? *
+            input#office(type='checkbox' name='poslovi[]' value='Kancelarijski poslovi')
+            label(for='office') &nbsp; Kancelarijski poslovi
+            br
+            input#humaniterian-actions(type='checkbox' name='poslovi[]' value='Humanitarne akcije')
+            label(for='humaniterian-actions') &nbsp; Humanitarne akcije
+            br
+            input#field-work(type='checkbox' name='poslovi[]' value='Terenski rad')
+            label(for='field-work') &nbsp; Terenski rad
+            br
+            input#help-actions(type='checkbox' name='poslovi[]' value='Radne akcije')
+            label(for='help-actions') &nbsp; Radne akcije
+            br
+            input#client-work(type='checkbox' name='poslovi[]' value='Direktan rad sa korisnicima')
+            label(for='client-work') &nbsp; Direktan rad sa korisnicima
+            br
+            input#organizations-event(type='checkbox' name='poslovi[]' value='Organizacija javnih događaja')
+            label(for='organizations-event') &nbsp; Organizacija javnih doga&dstrok;aja
+            br
+            input#else(type='checkbox' name='poslovi[]' value='Ostalo')
+            label(for='else') &nbsp; Ostalo
+            br
+          .question
+            p Koliko sati nedeljno mo&zcaron;ete posvetiti volonterskom radu? *
+            input#afternoon(type='checkbox' name='nedeljni_sati[]' value='1h-8h')
+            label(for='afternoon') &nbsp; 1h-8h
+            br
+            input#beforenoon(type='checkbox' name='nedeljni_sati[]' value='9h-16h')
+            label(for='beforenoon') &nbsp; 9h-16h
+            br
+            input#tillmidnight(type='checkbox' name='nedeljni_sati[]' value='17h-24h')
+            label(for='tillmidnight') &nbsp; 17h-24h
+            br
+            input#halftime(type='checkbox' name='nedeljni_sati[]' value='25h-32h')
+            label(for='halftime') &nbsp; 25h-32h
+            br
+            input#full(type='checkbox' name='nedeljni_sati[]' value='33h-40h')
+            label(for='full') &nbsp; 33h-40h
+            br
+          .question
+            p Koje vreme bi Vam odgovaralo za volontiranje? *
+            input#flexible(type='checkbox' name='vreme[]' value='Fleksibilno radno vreme')
+            label(for='flexible') &nbsp; Fleksibilno radno vreme
+            br
+            input#working-days(type='checkbox' name='vreme[]' value='Samo radnim danima')
+            label(for='working-days') &nbsp; Samo radnim danima
+            br
+            input#noon(type='checkbox' name='vreme[]' value='Posle podne')
+            label(for='noon') &nbsp; Posle podne
+            br
+            input#weekend(type='checkbox' name='vreme[]' value='Samo vikendom')
+            label(for='weekend') &nbsp; Samo vikendom
+            br
+            input#everyday(type='checkbox' name='vreme[]' value='Svaki dan')
+            label(for='everyday') &nbsp; Svaki dan
+            br
+          .question
+            p Da li ste spremni pro&cacute;i dodatnu obuku za volonterski rad?*
+            input#da(type='radio' name='dodatna_obuka' value='Da')
+            label(for='da') &nbsp; Da
+            br
+            input#ne(type='radio' name='dodatna_obuka' value='Ne')
+            label(for='ne') &nbsp; Ne
+            br
+          .question.text-center
+            button.btn.btn-default.btn-custom Prijavi Se
+  .container.overflow-hidden
+    .row
+      .col.heading-custom-reverse
+        p.col-5
+          | Ukoliko zelite da postanete nas donator/ka i raspitajte se o nacinma da nam se pridruzite, javite na mail adresu
+          strong office@udruzenjepsihologanp.org
+footer
+  .container
+    .row.m-0
+      .col
+        | Copyrights &copy; ZenShu 2018
+      .col.menu.d-flex.justify-content-end
+        ul.p-0
+          li
+            a(href='#') Pocetna
+          li
+            a(href='#') O nama
+          li
+            a(href='#') Pitajte nas
+          li
+            a(href='#') Kontakt

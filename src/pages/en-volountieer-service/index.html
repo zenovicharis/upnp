@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>UPNP Sponzori</title>
+</head>
+
+<body style="display:none;">
+  <header>
+    <div class="container">
+      <nav class="row">
+        <div class="col-3 d-flex align-items-center">
+          <img src="img/logoupnp.svg" id="logo" class="" alt="Organization's Logo">
+        </div>
+        <div class="col d-flex align-items-center justify-content-end">
+          <ul>
+            <li>
+              <a href="/public/news">Vesti</a>
+            </li>
+            <li>/</li>
+            <li>
+              <a href="https://http.cat/404">Projekti</a>
+            </li>
+            <li>/</li>
+            <li>
+              <a href="/volunteer" class="active">Volonterski Servis</a>
+            </li>
+            <li>/</li>
+            <li>
+              <a href="/patreon">Donatori i Partneri</a>
+            </li>
+            <li>/</li>
+            <li>
+              <a href="/gallery">Galerija</a>
+            </li>
+            <li>/</li>
+            <li>
+              <a href="/aboutus">O nama</a>
+            </li>
+            <li>/</li>
+            <li>
+              <a href="/contact">Kontakti</a>
+            </li>
+          </ul>
+          <span class="lang">
+            <img src="img/eng.png" alt="">
+            <a href="">ENG</a>
+          </span>
+        </div>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="container overflow-hidden">
+      <div class="row">
+        <div class="col heading-custom">
+          <h2>VOLONTERSKI SERVIS</h2>
+        </div>
+      </div>
+    </div>
+    <div class="container main-container py-3">
+      <div class="row volountieer-form">
+        <div class="col">
+          <h5>Prijava Volontera</h5>
+          <p class="text-justify">
+            Pred vama je upitnik za učlanjenje u bazu volonterskog servisa Udruženja psihologa u Novom Pazaru. Upitnik se sastoji iz
+            3 celine: Lični podaci, Veštine, Interesovanja. Potrudite se da što preciznije odgovorite na postavljena pitanja
+            kako bismo mogli da vam ponudimo najadkvatniji volonterski staž. Polja označena sa * su obavezna
+          </p>
+          <hr>
+          <form id="volontieer-form">
+            <label for="ime_prezime">Ime i Prezime*</label>
+            <div class="input-group">
+              <input type="text" id="ime_prezime" name="ime_prezime" class="form-control">
+            </div>
+            <label for="datum">Datum Rodjenja*</label>
+            <div class="input-group">
+              <input type="date" id="datum" name="datum" class="form-control">
+            </div>
+            <label for="adresa">Adresa Prebivalista</label>
+            <div class="input-group">
+              <input type="text" id="adresa" name="adresa" class="form-control">
+            </div>
+            <label for="grad">Grad</label>
+            <div class="input-group">
+              <input type="text" id="grad" name="grad" class="form-control">
+            </div>
+            <label for="phone">Telefon</label>
+            <div class="input-group">
+              <input type="text" id="phone" name="phone" class="form-control">
+            </div>
+            <label for="telefon">Email</label>
+            <div class="input-group">
+              <input type="text" id="telefon" name="telefon" class="form-control">
+            </div>
+
+            <h3>Vestine</h3>
+            <hr/>
+            <label for="str_sprema">Stručna sprema *</label>
+            <div class="input-group">
+              <select class="form-control" name="str_sprema" id="str_sprema">
+                <option value="I Stepen (četiri razreda osnovne škole)" selected="" style="">I Stepen (četiri razreda osnovne škole)</option>
+                <option value="II Stepen - (osnovna škola)      " style="">II Stepen - (osnovna škola) </option>
+                <option value="III Stepen - (srednja škola u trogodišnjem trajanju)     " style="">III Stepen - (srednja škola u trogodišnjem trajanju) </option>
+                <option value="IV Stepen - (srednja škola u četvorogodišnjem trajanju)      " style="">IV Stepen - (srednja škola u četvorogodišnjem trajanju) </option>
+                <option value="V Stepen - (viša škola u jednogodišnjem trajanju)        " style="">V Stepen - (viša škola u jednogodišnjem trajanju) </option>
+                <option value="VI Stepen - (viša škola)" style="">VI Stepen - (viša škola)</option>
+                <option value="VII Stepen - (fakultet)      " style="">VII Stepen - (fakultet) </option>
+                <option value="VII-1 Stepen - (specijalističke studije / master)        " style="">VII-1 Stepen - (specijalističke studije / master) </option>
+                <option value="VII-2 Stepen - (magistratura)" style="">VII-2 Stepen - (magistratura)</option>
+                <option value="VIII Stepen - (doktorat)" style="">VIII Stepen - (doktorat)</option>
+              </select>
+            </div>
+            <label for="zanimanje">Zanimanje</label>
+            <div class="input-group">
+              <input type="text" id="zanimanje" name="zanimanje" class="form-control">
+            </div>
+            <label for="hobi">Hobi,interesi,veštine*</label>
+            <div class="input-group">
+              <textarea name="hobi" id="message" class="form-control" required="required" rows="8"></textarea>
+            </div>
+            <label for="iskustvo">Dosadašnje volontersko iskustvo*</label>
+            <div class="input-group">
+              <textarea name="iskustvo" id="iskustvo" class="form-control" rows="8"></textarea>
+            </div>
+            <h3>Volontersko interesovanje</h3>
+            <hr>
+            <div class="interest">
+              <p>Za koje od navedenih područja volonterskog rada ste zainteresovani? *</p>
+              <input type="checkbox" name="podrucje_rada[]" id="help" value="Psihološka pomoć deci i mladima">
+              <label for="help">&nbsp; Psihološka pomoć deci i mladima</label>
+              <br>
+              <input type="checkbox" name="podrucje_rada[]" id="social" value="Socijalne aktivnosti za decu i mlade">
+              <label for="social">&nbsp; Socijalne aktivnosti za decu i mlade</label>
+              <br>
+              <input type="checkbox" name="podrucje_rada[]" id="addictivnes" value="Prevencija zavisnosti">
+              <label for="addictivnes">&nbsp; Prevencija zavisnosti</label>
+              <br>
+              <input type="checkbox" name="podrucje_rada[]" id="mental-health" value="Promocija mentalnog zdravlja">
+              <label for="mental-health">&nbsp; Promocija mentalnog zdravlja</label>
+              <br>
+              <input type="checkbox" name="podrucje_rada[]" id="personal-assistence" value="Personalna asistencija za osobe sa invaliditetom">
+              <label for="personal-assistence">&nbsp; Personalna asistencija za osobe sa invaliditetom</label>
+              <br>
+              <input type="checkbox" name="podrucje_rada[]" id="care" value="Briga o starijima">
+              <label for="care">&nbsp; Briga o starijima</label>
+              <br>
+              <input type="checkbox" name="podrucje_rada[]" id="ecological" value="Ekološka psihologija">
+              <label for="ecological">&nbsp; Ekološka psihologija</label>
+              <br>
+              <input type="checkbox" name="podrucje_rada[]" id="gipsy-help" value="">
+              <label for="gipsy-help">&nbsp; Inkluzija Roma</label>
+              <br>
+              <input type="checkbox" name="podrucje_rada[]" id="advice" value="Inkluzija Roma">
+              <label for="advice">&nbsp; Omladinsko savetovalište</label>
+              <br>
+              <input type="checkbox" name="podrucje_rada[]" id="violence" value="Prevencija nasilja">
+              <label for="violence">&nbsp; Prevencija nasilja</label>
+              <br>
+              <input type="checkbox" name="podrucje_rada[]" id="equality" value="Ravnopravnost i tolerancija">
+              <label for="equality">&nbsp; Ravnopravnost i tolerancija</label>
+              <br>
+              <input type="checkbox" name="podrucje_rada[]" id="cirtical-interventions" value="Intervencije u krizi">
+              <label for="cirtical-interventions">&nbsp; Intervencije u krizi</label>
+              <br>
+            </div>
+
+            <div class="question">
+              <p>Koje ste konkretne poslove spremni da obavljate? *</p>
+              <input type="checkbox" name="poslovi[]" id="office" value="Kancelarijski poslovi">
+              <label for="office">&nbsp; Kancelarijski poslovi</label>
+              <br>
+              <input type="checkbox" name="poslovi[]" id="humaniterian-actions" value="Humanitarne akcije">
+              <label for="humaniterian-actions">&nbsp; Humanitarne akcije</label>
+              <br>
+              <input type="checkbox" name="poslovi[]" id="field-work" value="Terenski rad">
+              <label for="field-work">&nbsp; Terenski rad</label>
+              <br>
+              <input type="checkbox" name="poslovi[]" id="help-actions" value="Radne akcije">
+              <label for="help-actions">&nbsp; Radne akcije</label>
+              <br>
+              <input type="checkbox" name="poslovi[]" id="client-work" value="Direktan rad sa korisnicima">
+              <label for="client-work">&nbsp; Direktan rad sa korisnicima</label>
+              <br>
+              <input type="checkbox" name="poslovi[]" id="organizations-event" value="Organizacija javnih događaja">
+              <label for="organizations-event">&nbsp; Organizacija javnih događaja</label>
+              <br>
+              <input type="checkbox" name="poslovi[]" id="else" value="Ostalo">
+              <label for="else">&nbsp; Ostalo</label>
+              <br>
+            </div>
+
+            <div class="question">
+              <p>Koliko sati nedeljno možete posvetiti volonterskom radu? *</p>
+              <input type="checkbox" name="nedeljni_sati[]" id="afternoon" value="1h-8h">
+              <label for="afternoon">&nbsp; 1h-8h</label>
+              <br>
+              <input type="checkbox" name="nedeljni_sati[]" id="beforenoon" value="9h-16h">
+              <label for="beforenoon">&nbsp; 9h-16h</label>
+              <br>
+              <input type="checkbox" name="nedeljni_sati[]" id="tillmidnight" value="17h-24h">
+              <label for="tillmidnight">&nbsp; 17h-24h</label>
+              <br>
+              <input type="checkbox" name="nedeljni_sati[]" id="halftime" value="25h-32h">
+              <label for="halftime">&nbsp; 25h-32h</label>
+              <br>
+              <input type="checkbox" name="nedeljni_sati[]" id="full" value="33h-40h">
+              <label for="full">&nbsp; 33h-40h</label>
+              <br>
+            </div>
+
+            <div class="question">
+              <p>Koje vreme bi Vam odgovaralo za volontiranje? *</p>
+              <input type="checkbox" name="vreme[]" id="flexible" value="Fleksibilno radno vreme">
+              <label for="flexible">&nbsp; Fleksibilno radno vreme</label>
+              <br>
+              <input type="checkbox" name="vreme[]" id="working-days" value="Samo radnim danima">
+              <label for="working-days">&nbsp; Samo radnim danima</label>
+              <br>
+              <input type="checkbox" name="vreme[]" id="noon" value="Posle podne">
+              <label for="noon">&nbsp; Posle podne</label>
+              <br>
+              <input type="checkbox" name="vreme[]" id="weekend" value="Samo vikendom">
+              <label for="weekend">&nbsp; Samo vikendom</label>
+              <br>
+              <input type="checkbox" name="vreme[]" id="everyday" value="Svaki dan">
+              <label for="everyday">&nbsp; Svaki dan</label>
+              <br>
+            </div>
+
+            <div class="question">
+              <p>Da li ste spremni proći dodatnu obuku za volonterski rad?*</p>
+              <input type="radio" name="dodatna_obuka" id="da" value="Da">
+              <label for="da">&nbsp; Da</label>
+              <br>
+              <input type="radio" name="dodatna_obuka" id="ne" value="Ne">
+              <label for="ne">&nbsp; Ne</label>
+              <br>
+            </div>
+
+            <div class="question text-center">
+              <button class="btn btn-default btn-custom">Prijavi Se</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="container overflow-hidden">
+      <div class="row">
+        <div class="col heading-custom-reverse">
+          <p class="col-5">Ukoliko zelite da postanete nas donator/ka i raspitajte se o nacinma da nam se pridruzite, javite na mail adresu
+            <strong>office@udruzenjepsihologanp.org</strong>
+          </p>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <div class="container">
+      <div class="row m-0">
+        <div class="col">
+          Copyrights &copy; ZenShu 2018
+        </div>
+        <div class="col menu d-flex justify-content-end">
+          <ul class="p-0">
+            <li>
+              <a href="#">Pocetna</a>
+            </li>
+            <li>
+              <a href="#">O nama</a>
+            </li>
+            <li>
+              <a href="#">Pitajte nas</a>
+            </li>
+            <li>
+              <a href="#">Kontakt</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>
