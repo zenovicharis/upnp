@@ -2,8 +2,11 @@ doctype html
 head
   meta(charset='UTF-8')
   meta(name='viewport' content='width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0')
+  link(rel="shortcut icon" href="img/favicon.ico" type="image/x-icon")
+  link(rel="icon" href="img/favicon.ico" type="image/x-icon")
   meta(http-equiv='X-UA-Compatible' content='ie=edge')
-  title UPNP Sponzori
+  link(rel='stylesheet', href='https://use.fontawesome.com/releases/v5.0.10/css/all.css', integrity='sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg', crossorigin='anonymous')
+  title UPNP - Volonterski Servis
 if isProd == 'prod'
   include ./../../parts/header-public-srb.pug
 else
@@ -15,7 +18,7 @@ main
         h2 VOLONTERSKI SERVIS
   .container.main-container.py-3
     .row.volountieer-form
-      .col
+      .col.form-responsive-
         h5 Prijava Volontera
         p.text-justify
           | Pred vama je upitnik za u&ccaron;lanjenje u bazu volonterskog servisa Udru&zcaron;enja psihologa u Novom Pazaru. Upitnik se sastoji iz
@@ -35,13 +38,13 @@ main
           label(for='grad') Grad
           .input-group
             input#grad.form-control(type='text' name='grad')
-          label(for='phone') Telefon
+          label(for='telefon') Telefon*
           .input-group
-            input#phone.form-control(type='text' name='phone')
-          label(for='telefon') Email
+            input#telefon.form-control(type='number' name='telefon')
+          label(for='email') Email*
           .input-group
-            input#telefon.form-control(type='text' name='telefon')
-          h3 Vestine
+            input#email.form-control(type='email' name='email')
+          h5 Vestine
           hr
           label(for='str_sprema') Stru&ccaron;na sprema *
           .input-group
@@ -65,9 +68,9 @@ main
           label(for='iskustvo') Dosada&scaron;nje volontersko iskustvo*
           .input-group
             textarea#iskustvo.form-control(name='iskustvo' rows='8')
-          h3 Volontersko interesovanje
+          h5 Volontersko interesovanje
           hr
-          .interest
+          .question
             p Za koje od navedenih podru&ccaron;ja volonterskog rada ste zainteresovani? *
             input#help(type='checkbox' name='podrucje_rada[]' value='Psihološka pomoć deci i mladima')
             label(for='help') &nbsp; Psiholo&scaron;ka pomo&cacute; deci i mladima
@@ -175,9 +178,24 @@ main
   .container.overflow-hidden
     .row
       .col.heading-custom-reverse
-        p.col-5
+        p.col-md-5.col-12
           | Ukoliko zelite da postanete nas donator/ka i raspitajte se o nacinma da nam se pridruzite, javite na mail adresu
           strong office@udruzenjepsihologanp.org
+    #myModal.modal.fade
+      .modal-dialog
+        .modal-content
+          // Modal Header
+          .modal-header
+            h4.modal-title.m-auto Cestitamo
+            //- button.close(type="button" data-dismiss="modal") ×
+          // Modal body
+          .modal-body.text-center
+            | Uspesno ste se prijavili kao volonter UPNP. Nas tim ce vas kontaktirati u najkracem mogucem roku.
+            | U medjuvremenu kontaktirajte nas putem mail adrese  
+          // Modal footer
+          //- .modal-footer
+          //-   button.btn.btn-danger(type="button" data-dismiss="modal") Close
+
 if isProd == 'prod'
   include ./../../parts/footer-public-srb.pug
 else

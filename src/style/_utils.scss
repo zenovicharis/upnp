@@ -28,6 +28,7 @@ p.strap-main{
   font-size:2em;
   z-index: 9999;
   top: 10%;
+  left: 0;
 }
 
 
@@ -104,4 +105,30 @@ p.strap:after{
   left: -42px;
   transform: rotateX(180deg);
   z-index: 10;
+}
+
+@mixin breakpoint($class) {
+  @if $class == xs {
+    @media (max-width: 767px) { @content; }
+  }
+ 
+  @else if $class == sm {
+    @media (min-width: 768px) { @content; }
+  }
+ 
+  @else if $class == md {
+    @media (min-width: 992px) { @content; }
+  }
+ 
+  @else if $class == lg {
+    @media (min-width: 1200px) { @content; }
+  }
+
+  @else if $class == xlg {
+    @media (min-width: 1300px) { @content; }
+  }
+ 
+  @else {
+    @warn "Breakpoint mixin supports: xs, sm, md, lg";
+  }
 }

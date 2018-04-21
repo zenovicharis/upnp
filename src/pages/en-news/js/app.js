@@ -29,4 +29,17 @@ $(document).ready(function(){
     processData: false,
     // dataType: dataType
   });
+
+  $(".hamburger").on("click", function(){
+    toggleMenu()
+  })
+  function toggleMenu(){
+    var rightPosition = parseInt($(".custom-showing").css('right'));
+    console.log(rightPosition);
+    if(rightPosition < 0){
+      $(".custom-showing").css('right', '0%')
+    } else {
+      $(".custom-showing").css('right', '-33%')
+    }
+  }
 });

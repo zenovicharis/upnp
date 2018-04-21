@@ -3,7 +3,11 @@
     margin-top:0 !important;
   }
   .col{
-    padding: 0 12em;
+    padding:0 3em;
+    
+    @include breakpoint(md){
+      padding: 0 6em;
+    }
   }
   label {
     margin-bottom: 1px;
@@ -31,6 +35,7 @@
         background-color:$borda;
         color:#fff;
       }
+      z-index:2 !important;
     }
   }
 }

@@ -15,12 +15,25 @@
   }
 
   .logo-beli img{
-    width: 75%;
+    width: auto;
     margin: auto;
+    @include breakpoint(sm){
+      width:75%;
+    }
+  }
+  .bout-text-container{
+    height:13em;
+    @include breakpoint(md){
+      height:initial;
+    }
+    .relative{
+      position: relative;
+      top:4em;
+      @include breakpoint(md){
+        top: 6em;
+      }
+    }
+
   }
 
-  .relative{
-    position: relative;
-    top: 6em;
-  }
 }

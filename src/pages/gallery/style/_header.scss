@@ -1,11 +1,10 @@
 header {
   box-shadow: 2px 2px 2px #ddd;
   overflow: hidden;
-  z-index: 10;
-  position: relative;
   nav.row {
     padding: 1em 0;
-    ul {
+    ul.main-navigation {
+      display:none;
       padding:0;
       margin:0;
       list-style-type: none;
@@ -27,13 +26,27 @@ header {
           }
         }
       }
-      
+      @include breakpoint(xlg){
+        display:block;
+      }
     }
     .lang{
-      position: absolute;
-      right: -68%;
+      position: fixed;
+      z-index: 10;
+      top: 8em;
+      right: 0 !important;
+      display: inline-block;
+      background-color: #ddd;
+      padding: 0;
+      padding-right: 1%;
+      padding-left: 5px;
+      padding-bottom: 2px;
+      padding-top: 2px;
+      border-top-left-radius: 15px;
+      border-bottom-left-radius: 15px;
       img{
-        width: 3.5%;
+        width: .9em;
+        vertical-align: middle;
       }
       a{
         color: $borda;
@@ -43,12 +56,73 @@ header {
           
         }
       }
+      @include breakpoint(xlg){
+        position: absolute !important;
+        right: -34em !important;
+        background-color: transparent;
+        top:initial;
+        img{
+          width: 3.5%;
+        }
+      }
+    }
+    .hamburger{
+      display:inline-block;
+      font-size:2em;
+      a{
+        color: $borda;
+        font-weight:600;
+        &:hover{
+          text-decoration:none;
+        }
+      }
+      @include breakpoint(xlg){
+        display:none;
+      }
     }
     img#logo{
-      width:52%;
+      width:7em;
       transition:all 1s ease 0s;
       &:hover{
         transform: rotateX(150deg);
+      }
+    }
+
+    .custom-showing{
+      margin-top: -2%;
+      transition: all .7s ease 0s;
+      position: fixed;
+      padding:0;
+      background-color: #ddd;
+      z-index: 82;
+      right: 0%;
+      height: 100%;
+      ul.mobile-menu{
+        display:block;
+        padding:0;
+        margin:2% 0;
+        list-style-type: none;
+        li{
+          &.hamburger{
+            display:block;
+            text-align:center;
+            font-size:3em;
+          }
+          text-transform: capitalize !important;
+          a {
+            padding:2% 2%;
+            display:block;
+            @extend %not-link;
+            &:hover{
+              color: $svelija-krem;
+              background-color:#000;
+            }
+            color: $borda;
+            &.active{
+              color:$svelija-krem;
+            }
+          }
+        }
       }
     }
   }

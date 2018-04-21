@@ -214,6 +214,14 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       title: 'Vest',
+      chunks: ['volountieer-list', 'bootstrap'],
+      template: 'src/pages/volountieer-list/index.html', // Load a custom template
+      inject: 'body', // Inject all scripts into the body
+      minify: false,
+      filename: isProd ? 'volountieer-list/volountieer-list.html.twig' : 'volountieer-list/volountieer-list.html'
+    }),
+    new HtmlWebpackPlugin({
+      title: 'Vest',
       chunks: ['news-list', 'bootstrap'],
       template: 'src/pages/news-list/index.html', // Load a custom template
       inject: 'body', // Inject all scripts into the body

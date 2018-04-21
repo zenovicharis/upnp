@@ -8,11 +8,16 @@
   p {
     font-size:75%;
   }
+
   img#box{
     transform: rotate(-20deg);
     position: relative;
-    width:100%;
-    top: 27px;
+    width: 8em;
+    top: 7em;
+    @include breakpoint(md){
+      width:100%;
+      top: 27px;
+    }
   }
 
   .custom-block-banner{

@@ -4,7 +4,7 @@ header
       .col-3.d-flex.align-items-center
         img#logo(src='img/logoupnp.svg' alt="Organization's Logo" data-url='/')
       .col.d-flex.align-items-center.justify-content-end
-        ul
+        ul.main-navigation
           li
             a(href='/news/news.html') VESTI
           li /
@@ -28,3 +28,24 @@ header
         span.lang
           img(src='img/eng.png' alt='')
           a(href='/en-landing/en-landing.html') ENG
+        span.hamburger
+          a(href="#")
+            i.fas.fa-bars
+      .col-3.custom-showing
+        ul.mobile-menu
+          li.hamburger
+            i.fas.fa-times
+          li
+            a(href='/news/news.html') Vesti
+          li
+            a(href='https://http.cat/404') Projekti
+          li
+            a(href='/volountieer-service/volountieer-service.html') Volonterski Servis
+          li
+            a(href='/patreon/patreon.html') Donatori i Partneri
+          li
+            a(href='/gallery/gallery.html') Galerija
+          li
+            a(href='/about/about.html')  O nama
+          li
+            a(href='/contact/contact.html') Kontakti

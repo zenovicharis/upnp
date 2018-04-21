@@ -1,11 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Ubuntu:400,400i,500,500i,700,700i');
-@import "colors";
-@import "utils";
-@import "header";
-@import "heading-custom";
-@import "main-section";
-@import "patrions";
-@import "footer";
+@import "../../patreon/style/colors";
+@import "../../../parts/scss/utils";
+@import "../../../parts/scss/header";
+@import "../../patreon/style/heading-custom";
+@import "../../patreon/style/main-section";
+@import "../../patreon/style/patrions";
+@import "../../patreon/style/footer";
 
 * {
   font-family: 'Ubuntu', sans-serif;

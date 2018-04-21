@@ -8,16 +8,13 @@ $(document).ready(function(){
   $("body").css("display", "block");
   $("#logo").on('click', function(){
     var url = $(this).attr("data-url");
-    // console.log(url)
     window.location = url;
   })
 
-  // console.log(LightBox);
 
   $.ajax({
     type: "get",
     url: "http://upnp.ga/api/albums",
-    // data: data,
     success: function (response) {
       var albums = response.forEach(el => {
         var images = el.images.map(img => {
@@ -28,12 +25,7 @@ $(document).ready(function(){
         var id = $(albumShellContainer).attr('id');
 
         $("#"+id).append(images.join(''));
-        //  $(albumShellContainer).append(images.join(''));
-        // console.log(albumShellContainer.html())
-        // return albumShellContainer.html()
       });
-      // console.log(albums);
-      // $(".gallery").append(albums.join(''));
     },
     contentType: false,
     cache: false,
@@ -41,6 +33,18 @@ $(document).ready(function(){
     // dataType: dataType
   });
 
+  $(".hamburger").on("click", function(){
+    toggleMenu()
+  })
+  function toggleMenu(){
+    var rightPosition = parseInt($(".custom-showing").css('right'));
+    console.log(rightPosition);
+    if(rightPosition < 0){
+      $(".custom-showing").css('right', '0%')
+    } else {
+      $(".custom-showing").css('right', '-33%')
+    }
+  }
 
   $(document).on("click", "div.column", function(){
     var id = $(this).attr("id");

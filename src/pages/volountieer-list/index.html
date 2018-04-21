@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>UPNP - List volontera</title>
+</head>
+
+<body style="display:none;">
+  <header>
+    <div class="container">
+      <nav class="row">
+        <div class="col-3 d-flex align-items-center">
+          <img src="img/logoupnp.svg" id="logo" class="" alt="Organization's Logo">
+        </div>
+        <div class="col d-flex align-items-center justify-content-end">
+          <ul>
+            <li>
+              <a href="/news">Vesti</a>
+            </li>
+            <li>/</li>
+            <li>
+              <a class="active" href="/album">Gallerija</a>
+            </li>
+          </ul>
+
+        </div>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="container overflow-hidden">
+      <div class="row">
+        <div class="col heading-custom">
+          <h2>
+            Volonteri
+          </h2>
+        </div>
+      </div>
+    </div>
+    <div class="container main-container py-3">
+      <div class="row gallery">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Ime i Prezime</th>
+              <th scope="col">Datum Rodjenja</th>
+              <th scope="col">Grad</th>
+              <th scope="col">Adresa</th>
+              <th scope="col">E-mail</th>
+              <th scope="col">Iskustvo</th>
+              <th scope="col">Zanimanje</th>
+              <th scope="col">Linkovi</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for volountieer in volountieers %}
+            <tr>
+              <td>{{volountieer.ime_prezime}}</td>
+              <td>{{volountieer.datum}}</td>
+              <td>{{volountieer.grad}}</td>
+              <td>{{volountieer.adresa}}</td>
+              <td>{{volountieer.telefon}}</td>
+              <td>{{volountieer.email}}</td>
+              <td>{{volountieer.iskustvo}}</td>
+              <td>{{volountieer.zanimanje}}</td>
+              <td>{{volountieer.ime_prezime}}</td>
+              <td><button class="btn btn-success">Info</button></td>
+            </tr>
+            {% endfor %} 
+          </tbody>
+        </table>
+
+
+      </div>
+      
+    </div>
+    <div class="container overflow-hidden">
+      <div class="row">
+        <div class="col heading-custom-reverse">
+          <p class="col-5">Ukoliko zelite da postanete nas donator/ka i raspitajte se o nacinma da nam se pridruzite, javite na mail adresu
+            <strong>office@udruzenjepsihologanp.org</strong>
+          </p>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <div class="container">
+      <div class="row m-0">
+        <div class="col">
+          Copyrights &copy; ZenShu 2018
+        </div>
+        <div class="col menu d-flex justify-content-end">
+          <ul class="p-0">
+            <li>
+              <a href="#">Pocetna</a>
+            </li>
+            <li>
+              <a href="#">O nama</a>
+            </li>
+            <li>
+              <a href="#">Pitajte nas</a>
+            </li>
+            <li>
+              <a href="#">Kontakt</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script>
+   function createAlbums(){
+     window.location = '/album/create'
+   }
+  </script>
+</body>
+
+</html>

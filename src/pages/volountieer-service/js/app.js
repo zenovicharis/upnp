@@ -1,8 +1,26 @@
 import "../style/main_v.scss";
 import "./jquery.validate.min.js";
 import "./additional-methods.min.js";
+import "bootstrap";
 
 $(document).ready(function () {
+
+
+  $(".hamburger").on("click", function(){
+    toggleMenu()
+  })
+  function toggleMenu(){
+    var rightPosition = parseInt($(".custom-showing").css('right'));
+    console.log(rightPosition);
+    if(rightPosition < 0){
+      $(".custom-showing").css('right', '0%')
+    } else {
+      $(".custom-showing").css('right', '-33%')
+    }
+  }
+
+
+  
   $("body").css("display", "block");
   $("#logo").on('click', function(){
     var url = $(this).attr("data-url");
@@ -12,31 +30,24 @@ $(document).ready(function () {
 
   $("#volontieer-form").submit(function (e) {
     e.preventDefault();
-    var dataArray = $(this).serializeArray();
-
-    var data = dataArray.reduce(function (form, el) {
-      form[el.name] = el.value;
-      return form;
-    }, {});
-    
-    var nedeljni_sati =$('input.nedeljni_sati:checked');
-    console.log(nedeljni_sati);
-    $.ajax({
-      type: "POST",
-      url: "http://upnp.ga/volountieer/create",
-      data: data,
-      success: function (response) {
-        console.log(response);
-      },
-      contentType: false,
-      cache: false,
-      processData: false,
-      // dataType: dataType
+    var data = ''
+    $.post( "http://upnp.ga/volountieer/create", data, function(response){
+      console.log(response);
+      $("#myModal").modal();
     });
-  })
+
+  });
+
   $("#volontieer-form").validate({
     rules: {
       ime_prezime: {
+        required: true
+      },
+      email: {
+        required: true,
+        email: true
+      },
+      telefon: {
         required: true
       },
       datum: {
@@ -59,6 +70,33 @@ $(document).ready(function () {
       },
       nedeljni_sati: {
         required: true
+      }
+    },
+    messages:{
+      ime_prezime: "Unesite vase ime i prezime",
+      datum: "Unesite datum vaseg rodjenja",
+      str_sprema: "Odaberite nivo vase strucne spreme",
+      email: {
+        required: "Unesite vasu e-mail adresu",
+        email: "Unesite tacnu e-mail adresu"
+      },
+      telefon: {
+        required: "Unesite vas kontakt telefon"
+      },
+      hobi: {
+        required: "Unesite vas hobi"
+      },
+      iskustvo: {
+        required: "Unesite vase iskustvo"
+      },
+      podrucje_rada: {
+        required: "Odaberite podrucije vaseg rada"
+      },
+      poslovi: {
+        required: "Unesite poslove kojim ste se bavili"
+      },
+      nedeljni_sati: {
+        required: "Odaberite broj slobodnih sati"
       }
     }
   });

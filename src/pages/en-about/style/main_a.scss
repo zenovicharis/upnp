@@ -1,10 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Ubuntu:400,400i,500,500i,700,700i');
-@import "colors";
-@import "utils";
-@import "header";
-@import "main-section";
-
-@import "footer";
+@import "../../about/style/colors";
+@import "../../../parts/scss/utils";
+@import "../../../parts/scss/header";
+@import "../../about/style/main-section";
+@import "../../about/style/footer";
 
 * {
   font-family: 'Ubuntu', sans-serif;
