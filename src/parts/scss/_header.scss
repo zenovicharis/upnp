@@ -83,12 +83,14 @@ header {
     img#logo{
       width:7em;
       transition:all 1s ease 0s;
-      &:hover{
-        transform: rotateX(150deg);
-      }
+      // &:hover{
+      //   transform: rotateX(150deg);
+      // }
     }
 
     .custom-showing{
+      position:relative;
+      border-left:1px solid #fff !important;
       margin-top: -3%;
       @include breakpoint(md){
         margin-top: -2%;
@@ -96,7 +98,9 @@ header {
       transition: all .7s ease 0s;
       position: fixed;
       padding:0;
-      background-color: #ddd;
+      background-color: $borda;
+      border-left:#fff;
+      color:#fff;
       z-index: 82;
       right: -33%;
       height: 100%;
@@ -109,20 +113,34 @@ header {
           &.hamburger{
             display:block;
             text-align:center;
-            font-size:3em;
+            font-size: 1.9em;
+            padding: 10% 0%;
           }
           text-transform: capitalize !important;
           a {
-            padding:2% 2%;
-            display:block;
+            padding: 6% 2%;
+            display: block;
+            color: #fff;
+            text-align: center;
+            text-transform: uppercase;
+            font-weight: bold !important;
             @extend %not-link;
             &:hover{
-              color: $svelija-krem;
-              background-color:#000;
+              color: $borda;
+              background-color:#fff;
             }
-            color: $borda;
+            color:#fff;
+            text-align:#fff;
             &.active{
               color:$svelija-krem;
+            }
+          }
+          &.lang-tab{
+            width: 100%;
+            position: absolute;
+            bottom:4%;
+            a img{
+              width:1.5em;
             }
           }
         }

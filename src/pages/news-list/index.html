@@ -18,12 +18,16 @@
         <div class="col d-flex align-items-center justify-content-end">
           <ul>
             <li>
-              <a href="/news" class="active">Vesti</a>
+              <a href="/news">Vesti</a>
             </li>
             <li>/</li>
             <li>
-              <a href="/album">Gallerija</a>
+              <a href="/album">Galerija</a>
             </li>
+            <li>/</li>
+            <li>
+                <a href="/volonteri">Volonteri</a>
+              </li>
           </ul>
         </div>
       </nav>
@@ -39,27 +43,65 @@
           </p>
         </div>
       </div>
-      {% for oneNews in news %}
-      <div class="row news-sections">
-        <span class="date">{{ oneNews.created|date("M/d/Y") }}</span>
-        <div class="col-6 news-picture">
-          <img src="{{ oneNews.images.url }}" alt="">
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active" id="english-tab" data-toggle="tab" href="#english" role="tab" aria-controls="english" aria-selected="true">English</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="serbian-tab" data-toggle="tab" href="#serbian" role="tab" aria-controls="serbian" aria-selected="false">Serbian</a>
+        </li>
+      </ul>
+      <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="english" role="tabpanel" aria-labelledby="english-tab">
+          {% for oneNews in newsEn %}
+          <div class="row news-sections">
+            <span class="date">{{ oneNews.created|date("M/d/Y") }}</span>
+            <div class="col-6 news-picture">
+              <img src="{{ oneNews.images.url }}" alt="">
+            </div>
+            <div class="col-6">
+              <h4>{{ oneNews.title }}</h4>
+              <p class="text-justify shortened">
+                {{oneNews.content}}
+              </p>
+              <div class="col">
+                <button onclick="window.location= '/news/edit/{{ oneNews.id }}'" class="btn btn-default btn-custom btn-info-custom" role="button">Edit</button>
+                <button onclick="window.location= '/news/{{ oneNews.id }}'" class="btn btn-default btn-custom btn-info-custom" role="button">Info</button>
+                <form action="/news/delete/{{ oneNews.id }}" method="post" class="d-inline">
+                  <button class="btn btn-default btn-custom btn-delete-custom" type="submit">Izbrisi</button>
+                </form>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
         </div>
-        <div class="col-6">
-          <h4>{{ oneNews.title }}</h4>
-          <p class="text-justify">
-            {{ oneNews.content|slice(0,70) }}
-          </p>
-          <p class="btn-group-custom">
-            <a href="/news/edit/{{ oneNews.id }}" class="btn btn-default btn-custom btn-info-custom" role="button">Edit</a>
-            <a href="/news/{{ oneNews.id }}" class="btn btn-default btn-custom btn-info-custom" role="button">Info</a>
-            <form action="/news/delete/{{ oneNews.id }}" method="post">
-              <button class="btn btn-default btn-custom btn-delete-custom" type="submit">Izbrisi</button>
-            </form>
-          </p>
+        <div class="tab-pane fade" id="serbian" role="tabpanel" aria-labelledby="serbian-tab">
+
+          {% for oneNews in newsSrb%}
+          <div class="row news-sections">
+            <span class="date">{{ oneNews.created|date("M/d/Y") }}</span>
+            <div class="col-6 news-picture">
+              <img src="{{ oneNews.images.url }}" alt="">
+            </div>
+            <div class="col-6">
+              <h4>{{ oneNews.title }}</h4>
+              <p class="text-justify shortened">
+                {{oneNews.content}}
+              </p>
+              <div class="col">
+                <button onclick="window.location= '/news/edit/{{ oneNews.id }}'" class="btn btn-default btn-custom btn-info-custom" role="button">Edit</button>
+                <button onclick="window.location= '/news/{{ oneNews.id }}'" class="btn btn-default btn-custom btn-info-custom" role="button">Info</button>
+                <form action="/news/delete/{{ oneNews.id }}" method="post" class="d-inline">
+                  <button class="btn btn-default btn-custom btn-delete-custom" type="submit">Izbrisi</button>
+                </form>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
         </div>
       </div>
-      {% endfor %}
+      </ul>
+
     </div>
   </main>
   <footer>

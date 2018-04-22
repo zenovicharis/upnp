@@ -22,7 +22,11 @@
             </li>
             <li>/</li>
             <li>
-              <a href="/album">Gallerija</a>
+              <a href="/album">Galerija</a>
+            </li>
+            <li>/</li>
+            <li>
+              <a href="/volonteri">Volonteri</a>
             </li>
           </ul>
         </div>
@@ -41,68 +45,74 @@
       <div class="row volountieer-form">
         <div class="col">
           <h5>Vest</h5>
-          <hr> 
+
+          <hr> {% if news.id is defined %}
           <div class="col-12">
-            <img src="{{news.images.url}}" class="w-100" alt="">
+            <img src="{{ news.images.url }}" class="w-100" alt="">
+            <div class="button-group text-center py-2">
+              <form action="/news/image/{{ news.id }}" method="POST" id="change-photo" enctype="multipart/form-data">
+                <input type="file" class="d-none" name="image" id="upload-form">
+                <button id="upload-button-form" class="btn btn-default">Postavi Novu Sliku</button>
+              </form>
+            </div>
           </div>
 
-          {% if news.id is defined %}
-          <hr> 
+          <hr>
           <form class="form" action="/news/update/{{ news.id }}" method="POST" id="createForm" enctype="multipart/form-data">
-          {% else %}
-          <form class="form" action="/news/create" method="POST" id="createForm" enctype="multipart/form-data">
-          {% endif %}
-            <label for="title">Naslov</label>
-            <div class="input-group">
-              <input type="text" id="title" name="title" class="form-control" value="{{news.title}}">
-            </div>
-            <label for="content">Sadrzaj</label>
-            <div class="input-group">
-              <textarea rows="9" name="content" id="content" class="form-control">{{news.content}}</textarea>
-            </div>
-            {% if news.images.url is null %}
-            <label for="upload">Slika</label>
-            <div class="input-group">
-              <input type="file" name="image" class="d-none" id="upload">
-              <button class="btn btn-default" id="upload-button">Postavi Sliku</button>
-              <p id="uploaded"></p>
-            </div>
-            {% endif %}
-            <label for="category">Kategorija</label>
-            <div class="input-group">
-              <select name="category" class="form-control">
-                <option value="">
-                  Odaberite Tip Vesti
-                </option>
-                <option value="projekt" {% if news.category=='projekt' %} selected="selected" {% endif %}>
-                  Projekt
-                </option>
-                <option value="blog" {% if news.category=='blog' %} selected="selected" {% endif %}>
-                  Blog
-                </option>
-                <option value="vest" {% if news.category=='vest' %} selected="selected" {% endif %}>
-                  Vest
-                </option>
-              </select>
-            </div>
-            <label for="language">Jezik</label>
-            <div class="input-group">
-              <select id="language" name="language" class="form-control">
-                <option value="">
-                  Odaberite Jezik
-                </option>
-                <option value="serbian" {% if news.language=='serbian' %} selected="selected" {% endif %}>
-                  Serbian
-                </option>
-                <option value="english" {% if news.language=='english' %} selected="selected" {% endif %}>
-                  English
-                </option>
-              </select>
-            </div>
-            <div class="question text-center">
-              <button class="btn btn-default btn-block" type="submit">{{ edit ? "Izmeni" : "Kreiraj" }}</button>
-            </div>
-          </form>
+            {% else %}
+            <form class="form" action="/news/create" method="POST" id="createForm" enctype="multipart/form-data">
+              {% endif %}
+              <label for="title">Naslov</label>
+              <div class="input-group">
+                <input type="text" id="title" name="title" class="form-control" value="{{news.title}}">
+              </div>
+              <label for="content">Sadrzaj</label>
+              <div class="input-group">
+                <textarea rows="9" name="content" id="content" class="form-control">{{news.content}}</textarea>
+              </div>
+              {% if news.images.url is null %}
+              <label for="upload">Slika</label>
+              <div class="input-group">
+                <input type="file" name="image" class="d-none" id="upload">
+                <button class="btn btn-default" id="upload-button">Postavi Sliku</button>
+                <p id="uploaded"></p>
+              </div>
+              {% endif %}
+              <label for="category">Kategorija</label>
+              <div class="input-group">
+                <select name="category" class="form-control">
+                  <option value="">
+                    Odaberite Tip Posta
+                  </option>
+                  <option value="projekt" {% if news.category=='projekt' %} selected="selected" {% endif %}>
+                    Projekt
+                  </option>
+                  <option value="blog" {% if news.category=='blog' %} selected="selected" {% endif %}>
+                    Blog
+                  </option>
+                  <option value="vest" {% if news.category=='vest' %} selected="selected" {% endif %}>
+                    Vest
+                  </option>
+                </select>
+              </div>
+              <label for="language">Jezik</label>
+              <div class="input-group">
+                <select id="language" name="language" class="form-control">
+                  <option value="">
+                    Odaberite Jezik
+                  </option>
+                  <option value="serbian" {% if news.language=='serbian' %} selected="selected" {% endif %}>
+                    Serbian
+                  </option>
+                  <option value="english" {% if news.language=='english' %} selected="selected" {% endif %}>
+                    English
+                  </option>
+                </select>
+              </div>
+              <div class="question text-right">
+                <button class="btn btn-default" type="submit">{{ edit ? "Izmeni" : "Kreiraj" }}</button>
+              </div>
+            </form>
         </div>
       </div>
     </div>
@@ -141,6 +151,20 @@
       </div>
     </div>
   </footer>
+  <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
+  <div class="modal" tabindex="-1" role="dialog" id="dialog-box">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <p class="text-center">Da li ste sigurni da zelite promeniti sliku ?</p>
+          <p class="text-center">
+            <button type="button" class="btn btn-primary" id="btn-submit-upload">Da</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Ne</button>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 
 </html>

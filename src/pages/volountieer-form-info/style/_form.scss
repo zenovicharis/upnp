@@ -7,6 +7,14 @@
   }
   label {
     margin-bottom: 1px;
+    font-weight:bold;
+  }
+  p{
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 10px;
+    display:block;
+    width:100%;
   }
   .input-group {
     margin-bottom: 10px;
@@ -16,7 +24,6 @@
     border-radius: 0px !important;
     margin-bottom: 5px;
   }
-
   .question{
     margin-bottom:20px;
     p{
@@ -29,6 +36,15 @@
     button {
       &:hover {
         background-color:$borda;
+        color:#fff;
+      }
+      &.btn-edit-custom:hover {
+        background-color:skyblue;
+        color:#fff;
+      }
+    
+      &.btn-delete-custom:hover {
+        background-color: rgb(255, 101, 101);
         color:#fff;
       }
     }

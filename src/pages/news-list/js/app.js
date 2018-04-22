@@ -5,5 +5,9 @@ $(document).ready(function(){
   $("#logo").on('click', function(){
     window.location = '/';
   })
-  
+  $(".shortened").each(function(el, p){
+    var text = $.parseHTML($(p).text());
+    var shortened= $(text).text().substring(0,550);
+    $(p).text(shortened);
+  });
 });

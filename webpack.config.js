@@ -34,11 +34,12 @@ module.exports = {
     'albums-list': './src/pages/albums-list/js/app.js',
     'album-form': './src/pages/album-form/js/app.js',
     'album-form-info': './src/pages/album-form-info/js/app.js',
+    'volountieer-list': './src/pages/volountieer-list/js/app.js',
+    'volountieer-form-info': './src/pages/volountieer-form-info/js/app.js',
 
     'en-patreon': './src/pages/en-patreon/js/app.js',
     'en-about': './src/pages/en-about/js/app.js',
     'en-contact': './src/pages/en-contact/js/app.js',
-    'en-volountieer-service': './src/pages/en-volountieer-service/js/app.js',
     'en-gallery': './src/pages/en-gallery/js/app.js',
     'en-news': './src/pages/en-news/js/app.js',
     'en-single-news': './src/pages/en-single-news/js/app.js',
@@ -199,10 +200,10 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: 'Vest',
       chunks: ['single-news', 'bootstrap'],
-      template: 'src/pages/single-news/index.pug', // Load a custom template
+      template: 'src/pages/single-news/index.html', // Load a custom template
       inject: 'body', // Inject all scripts into the body
       minify: false,
-      filename: 'single-news/single-news.html'
+      filename: isProd ? 'single-news/single-news.html.twig' : 'single-news/single-news.html'
     }),
     new HtmlWebpackPlugin({
       title: 'Vest',
@@ -268,6 +269,14 @@ module.exports = {
       minify: false,
       filename: isProd ? 'album-form-info/album-form-info.html.twig' : 'album-form-info/album-form-info.html'
     }),
+    new HtmlWebpackPlugin({
+      title: 'Vest',
+      chunks: ['volountieer-form-info', 'bootstrap'],
+      template: 'src/pages/volountieer-form-info/index.html', // Load a custom template
+      inject: 'body', // Inject all scripts into the body
+      minify: false,
+      filename: isProd ? 'volountieer-form-info/volountieer-form-info.html.twig' : 'volountieer-form-info/volountieer-form-info.html'
+    }),
 
 
 
@@ -302,14 +311,6 @@ module.exports = {
       inject: 'body', // Inject all scripts into the body
       minify: false,
       filename: 'en-contact/en-contact.html'
-    }),
-    new HtmlWebpackPlugin({
-      title: 'Volonterski Servis',
-      chunks: ['en-volountieer-service', 'bootstrap'],
-      template: 'src/pages/en-volountieer-service/index.pug', // Load a custom template
-      inject: 'body', // Inject all scripts into the body
-      minify: false,
-      filename: 'en-volountieer-service/en-volountieer-service.html'
     }),
     new HtmlWebpackPlugin({
       title: 'Galerija',

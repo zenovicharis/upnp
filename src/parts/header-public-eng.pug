@@ -4,7 +4,7 @@ header
       .col-3.d-flex.align-items-center
         img#logo(src='img/logoupnp.svg' alt="Organization's Logo" data-url='/en')
       .col.d-flex.align-items-center.justify-content-end
-        ul
+        ul.main-navigation
           li
             a(href='/en/public/news') NEWS
           li /
@@ -22,13 +22,13 @@ header
           li /
           li
             a(href='/en/contact') CONTACT
-        span.lang
+        span.lang.d-md-block.d-none
           img(src='img/srb.png' alt='')
           a(href='/') SRB
         span.hamburger
           a(href="#")
             i.fas.fa-bars
-      .col-3.custom-showing
+      .col-md-3.col-4.custom-showing
         ul.mobile-menu
           li.hamburger
             i.fas.fa-times
@@ -43,4 +43,8 @@ header
           li
             a(href='/en/aboutus') About Us
           li
-            a(href='/contact/contact.html') Contact
+            a(href='/en/contact') Contact
+          li.lang-tab
+            a(href='/') 
+              img(src='img/srb.png' alt='')
+              | SRB

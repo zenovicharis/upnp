@@ -22,8 +22,12 @@
             </li>
             <li>/</li>
             <li>
-              <a href="/album">Gallerija</a>
+              <a href="/album">Galerija</a>
             </li>
+            <li>/</li>
+            <li>
+                <a href="/volonteri">Volonteri</a>
+              </li>
           </ul>
         </div>
       </nav>
@@ -43,38 +47,48 @@
           <h5>Vest</h5>
           <hr>
           <div class="col-12">
-            <img src="{{ news.images.url}}" class="w-100" alt="">
+            <img src="{{ news.images.url }}" class="w-100" alt="">
+            <div class="button-group text-center py-2">
+              <form action="/news/image/{{ news.id }}" method="POST" id="change-photo" enctype="multipart/form-data">
+                <input type="file" class="d-none" name="image" id="upload">
+                <button id="upload-button" class="btn btn-default">Postavi Novu Sliku</button>
+              </form>
+            </div>
           </div>
           <hr>
-            <label for="title">Naslov</label>
-            <div class="input-group">
-              <!-- <input type="text" id="title" name="title" class="form-control"> -->
-              <p class="font-italic">{{ news.title }}</p>
-            </div>
-            <label for="content">Sadrzaj</label>
-            <div class="input-group">
-              <p class="font-italic text-justify">
-                  {{ news.content }}
-              </p>
-            </div>
-            <label for="category">Kategorija</label>
-            <div class="input-group">
-              <p class="font-italic">
-                  {{ news.category }}
-              </p>
-            </div>
-            <label for="language">Jezik</label>
-            <div class="input-group">
-              <p class="font-italic">
-                  {{ news.language }}
-              </p>
-            </div>
-            <div class="question text-center">
+          <label for="title">Naslov</label>
+          <div class="input-group">
+            <!-- <input type="text" id="title" name="title" class="form-control"> -->
+            <p class="font-italic">{{ news.title }}</p>
+          </div>
+          <label for="content">Sadrzaj</label>
+          <div class="input-group wrapped">
+            {{ news.content | raw }}
+          </div>
+          <label for="category">Kategorija</label>
+          <div class="input-group">
+            <p class="font-italic text-capitalize">
+              {{ news.category }}
+            </p>
+          </div>
+          <label for="language">Jezik</label>
+          <div class="input-group">
+            <p class="font-italic text-capitalize">
+              {{ news.language }}
+            </p>
+          </div>
+          <!-- <div class="question text-center">
                 <a href="/news/edit/{{ news.id }}" class="btn btn-default btn-custom btn-info-custom" role="button">Edit</a>
               <form action="/news/delete/{{ news.id }}" method="post">
                 <button class="btn btn-default btn-custom btn-delete-custom" type="submit">Izbrisi</button>
               </form>
-            </div>
+            </div> -->
+          <div class="col-12 text-right">
+            <button onclick="window.location= '/news/edit/{{ news.id }}'" class="btn btn-default btn-custom btn-info-custom" role="button">Izmeni</button>
+            <form action="/news/delete/{{ news.id }}" method="post" class="d-inline">
+              <button class="btn btn-default btn-custom btn-delete-custom" type="submit">Izbrisi</button>
+            </form>
+          </div>
         </div>
       </div>
     </div>
@@ -113,6 +127,19 @@
       </div>
     </div>
   </footer>
+  <div class="modal" tabindex="-1" role="dialog" id="dialog-box">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <p class="text-center">Da li ste sigurni da zelite promeniti sliku ?</p>
+          <p class="text-center">
+            <button type="button" class="btn btn-primary" id="btn-submit-upload">Da</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Ne</button>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 
 </html>

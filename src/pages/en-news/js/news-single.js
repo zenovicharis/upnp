@@ -9,7 +9,7 @@ exports.getNews = function (news){
     <p class="text-justify">
     `+news.content +`
     </p>
-    <button class="btn btn-default btn-custom" onclick="toSingleNews(`+news.id+`)">Procitaj jos</button>
+    <button class="btn btn-default btn-custom" onclick="toOneNews(`+news.id+`)">Read More</button>
   </div>
 </div>
 `;

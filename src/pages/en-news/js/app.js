@@ -12,17 +12,16 @@ $(document).ready(function(){
 
   $.ajax({
     type: "get",
-    url: "http://upnp.ga/api/news",
+    url: "http://upnp.ga/api/news/english",
     // data: data,
     success: function (response) {
-      // self.newsList = response;
-      // self.getNews()
-      console.log(response);
+      console.log(response)
       var newsList = response.map(el => {
+        var text = $.parseHTML(el.content);
+        el.content = $(text).text().substring(0,550);
         return news.getNews(el);
-      })
+      });
       $("div.main-container").append(newsList.join(""));
-      console.log(newsList)
     },
     contentType: false,
     cache: false,

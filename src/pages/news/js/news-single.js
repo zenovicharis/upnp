@@ -6,10 +6,10 @@ exports.getNews = function (news){
   </div>
   <div class="col-sm-6 col-12">
     <h4>`+news.title +`</h4>
-    <p class="text-justify">
+    <p class="text-justify news-content">
     `+news.content +`
     </p>
-    <button class="btn btn-default btn-custom" onclick="toSingleNews(`+news.id+`)">Procitaj jos</button>
+    <button class="btn btn-default btn-custom" onclick="toOneNews(`+news.id+`)">Procitaj jos</button>
   </div>
 </div>
 `;

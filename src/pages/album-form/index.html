@@ -22,7 +22,11 @@
             </li>
             <li>/</li>
             <li>
-              <a href="/album">Gallerija</a>
+              <a href="/album">Galerija</a>
+            </li>
+            <li>/</li>
+            <li>
+              <a href="/volonteri">Volonteri</a>
             </li>
           </ul>
         </div>
@@ -43,19 +47,18 @@
           <h5>
             Album
           </h5>
-          <hr> 
+          <hr>
           <div class="row">
             {% for image in album.images %}
-
-
             <div class="col-3 my-2">
               <div class="image-container">
-                <img src="{{ image.url }}" class="w-100 mb-1" alt="">
-                <p class="text-center m-0">
-                  <!-- <button class="btn btn-default btn-custom btn-info-custom">Detaljnije</button> -->
-                  <!-- <button class="btn btn-default btn-custom btn-edit-custom">Izmeni</button> -->
-                  <button class="btn btn-default btn-custom btn-delete-custom">Izbrisi</button>
-                </p>
+                <img src="{{ image.url }}" class="w-100 mb-1" alt=""> {% if album.images|length > 2 %}
+                <div class="text-center m-0">
+                  <form action="/album/image/{{album.id}}" method="POST" class="d-inline">
+                    <button class="btn btn-default btn-custom btn-delete-custom" type="submit">Izbrisi</button>
+                  </form>
+                </div>
+                {% endif %}
               </div>
             </div>
             {% endfor %}
@@ -63,46 +66,41 @@
           {% if album.id is defined %}
           <div class="row">
             <div class="col-12">
-                <div class="input-group">
-                  <form action="/album/upload/{{album.id}}" method="POST" id="image-upload-form" enctype="multipart/form-data">
-                    <input type="file" name="image" class="d-none" id="upload" accept="image/jpeg,image/png,image/jpg">
-                    <button class="btn btn-default  float-left" id="upload-button">Postavi Sliku</button>
-                    <p id="uploaded"></p>
-                    <button class="btn btn-default  float-right" id="upload-button" type="submit">Potvrdi</button>
-                  </form>
-
-                </div>
+              <div class="button-group text-center py-2">
+                <form action="/album/upload/{{ album.id }}" method="POST" id="change-photo" enctype="multipart/form-data">
+                  <input type="file" class="d-none" name="image" id="upload-form">
+                  <button id="upload-button-form" class="btn btn-default">Postavi Novu Sliku</button>
+                </form>
+              </div>
             </div>
           </div>
-          <hr>
-          {% endif %}
-
-          {% if album.id is defined %}
+          <hr> {% endif %} {% if album.id is defined %}
           <form class="form" action="/album/update/{{ album.id }}" method="POST" id="createForm" enctype="multipart/form-data">
-          {% else %}
-          <form class="form" action="/album/create" method="POST" id="createForm" enctype="multipart/form-data">
-          {% endif %}
+            {% else %}
+            <form class="form" action="/album/create" method="POST" id="createForm" enctype="multipart/form-data">
+              {% endif %}
 
-            <label for="title">Naslov</label>
-            <div class="input-group">
-              <input type="text" id="title" name="title" class="form-control" value="{{album.title}}">
-            </div>
-            <label for="english_title">Naslov na Engleskom</label>
-            <div class="input-group">
-              <input type="text" id="english_title" name="english_title" class="form-control" value="{{album.english_title}}">
-            </div>
-            {% if album.id is null %}
-            <label for="upload">Slika</label>
-            <div class="input-group">
-              <input type="file" name="image" class="d-none" id="upload" accept="image/jpeg,image/png,image/jpg">
-              <button class="btn btn-default" id="upload-button">Postavi Sliku</button>
-              <p id="uploaded"></p>
-            </div>
-            {% endif %}
-            <div class="question text-center">
-                <button class="btn btn-default btn-block">{{ edit ? "Izmeni" : "Kreiraj" }}</button>
-            </div>
-          </form>
+              <label for="title">Naslov</label>
+              <div class="input-group">
+                <input type="text" id="title" name="title" class="form-control" value="{{album.title}}">
+              </div>
+              <label for="english_title">Naslov na Engleskom</label>
+              <div class="input-group">
+                <input type="text" id="english_title" name="english_title" class="form-control" value="{{album.english_title}}">
+              </div>
+              {% if album.id is null %}
+              <label for="upload">Slika</label>
+              <div class="input-group">
+                <input type="file" name="image" class="d-none" id="upload" accept="image/jpeg,image/png,image/jpg">
+                <button class="btn btn-default" id="upload-button">Postavi Sliku</button>
+                <p id="uploaded"></p>
+              </div>
+              {% endif %}
+
+              <div class="question text-right">
+                <button class="btn btn-default">{{ edit ? "Izmeni" : "Kreiraj" }}</button>
+              </div>
+            </form>
 
         </div>
       </div>
@@ -142,6 +140,19 @@
       </div>
     </div>
   </footer>
+  <div class="modal" tabindex="-1" role="dialog" id="dialog-box">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <p class="text-center">Da li ste sigurni da zelite postaviti sliku ?</p>
+          <p class="text-center">
+            <button type="button" class="btn btn-primary" id="btn-submit-upload">Da</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Ne</button>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 
 </html>

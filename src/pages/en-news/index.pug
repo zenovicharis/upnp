@@ -22,6 +22,6 @@ if isProd == 'prod'
 else
   include ./../../parts/footer-public-eng-local.pug
 script.
-  function toSingleNews() {
-  window.location = "single-news.html"
+  function toOneNews(id) {
+    window.location = "/en/public/news/"+id
   }

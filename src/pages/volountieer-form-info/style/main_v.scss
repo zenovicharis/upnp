@@ -1,11 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Ubuntu:400,400i,500,500i,700,700i');
 @import "colors";
-@import "../../../parts/scss/utils";
-@import "../../../parts/scss/header";
+@import "utils";
+@import "header";
 @import "main-section";
-@import "news";
-// @import "heading-custom";
-@import "gallery";
+@import "heading-custom";
 @import "form";
 @import "footer";
 

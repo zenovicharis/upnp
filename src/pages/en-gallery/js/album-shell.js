@@ -3,7 +3,7 @@ exports.getShell = function (album){
   <div class="card hover-shadow" style="width: 80%; margin:auto;">
   <img src="`+album.images[0].url+`" alt="Card image cap" class="card-img-top">
   <div class="card-body">
-    <h5 class="card-title mb-0 text-center">`+album.title+`</h5>
+    <h5 class="card-title mb-0 text-center">`+album.english_title+`</h5>
   </div>
 </div>`;
 }

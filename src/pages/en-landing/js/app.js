@@ -15,7 +15,7 @@ $(document).ready(function() {
 
   $.ajax({
     type: "get",
-    url: "http://upnp.ga/api/news",
+    url: "http://upnp.ga/api/news/english",
     success: function (response) {
       var newsList = newsSet.getNews(response);
       $("#news-block").append(newsList);

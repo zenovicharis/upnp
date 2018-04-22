@@ -22,7 +22,11 @@
             </li>
             <li>/</li>
             <li>
-              <a href="/album">Gallerija</a>
+              <a href="/album">Galerija</a>
+            </li>
+            <li>/</li>
+            <li>
+              <a href="/volonteri">Volonteri</a>
             </li>
           </ul>
         </div>
@@ -41,7 +45,7 @@
       <div class="row volountieer-form">
         <div class="col">
           <h5>Album</h5>
-          <hr> 
+          <hr>
           <div class="row">
             {% for image in album.images %}
             <div class="col-3 my-2">
@@ -51,25 +55,25 @@
             </div>
             {% endfor %}
           </div>
-          <hr> 
+          <hr>
 
           <hr>
-            <label for="title">Naslov</label>
-            <div class="input-group">
-              <!-- <input type="text" id="title" name="title" class="form-control"> -->
-              <p class="font-italic">{{album.title}}</p>
-            </div>
-            <label for="title">Naslov na Engleskom</label>
-            <div class="input-group">
-              <!-- <input type="text" id="title" name="title" class="form-control"> -->
-              <p class="font-italic">{{album.english_title}}</p>
-            </div>
-            <div class="question text-center">
-              <form action="/album/delete/{{ album.id }}" method="POST">
-                <button class="btn btn-default btn-custom btn-delete-custom" role="button" type="submit">Izbrisite</button>
-              </form>
-                <a href="/album/edit/{{ album.id }}" class="btn btn-default btn-custom btn-edit-custom" role="button">Izmeni</a>
-            </div>
+          <label for="title">Naslov</label>
+          <div class="input-group">
+            <!-- <input type="text" id="title" name="title" class="form-control"> -->
+            <p class="font-italic">{{album.title}}</p>
+          </div>
+          <label for="title">Naslov na Engleskom</label>
+          <div class="input-group">
+            <!-- <input type="text" id="title" name="title" class="form-control"> -->
+            <p class="font-italic">{{album.english_title}}</p>
+          </div>
+          <div class="col-12 text-right">
+            <form action="/album/delete/{{ album.id }}" method="POST" class="d-inline">
+              <button class="btn btn-default btn-custom btn-delete-custom" role="button" type="submit">Izbrisite</button>
+            </form>
+            <button onclick="window.location= '/album/edit/{{ album.id }}'" class="btn btn-default btn-custom btn-edit-custom" role="button">Izmeni</button>
+          </div>
         </div>
       </div>
     </div>

@@ -8,4 +8,24 @@ $(document).ready(function(){
     window.location = url;
   })
   
+
+  $(".shortened").each(function(el, p){
+    var text = $.parseHTML($(p).text());
+    console.log(text);
+    var shortened= $(text).text().substring(0,150);
+    $(p).text(shortened);
+  });
+
+  $(".hamburger").on("click", function(){
+    toggleMenu()
+  })
+  function toggleMenu(){
+    var rightPosition = parseInt($(".custom-showing").css('right'));
+    console.log(rightPosition);
+    if(rightPosition < 0){
+      $(".custom-showing").css('right', '0%')
+    } else {
+      $(".custom-showing").css('right', '-33%')
+    }
+  }
 });

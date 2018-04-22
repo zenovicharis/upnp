@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>UPNP - {{album.title}}</title>
+</head>
+
+<body style="display:none;">
+  <header>
+    <div class="container">
+      <nav class="row">
+        <div class="col-3 d-flex align-items-center">
+          <img src="img/logoupnp.svg" id="logo" class="" alt="Organization's Logo">
+        </div>
+        <div class="col d-flex align-items-center justify-content-end">
+          <ul>
+            <li>
+              <a href="/news">Vesti</a>
+            </li>
+            <li>/</li>
+            <li>
+              <a href="/album">Galerija</a>
+            </li>
+            <li>/</li>
+            <li>
+              <a href="/volonteri" class="active">Volonteri</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="container overflow-hidden">
+      <div class="row">
+        <div class="col heading-custom">
+          <h2>Detalji Volontera</h2>
+        </div>
+      </div>
+    </div>
+    <div class="container main-container py-3">
+      <div class="row volountieer-form">
+        <div class="col">
+          <h5>Volonter</h5>
+          <hr>
+          <label for="title">Ime i Prezime</label>
+          <div class="input-group">
+            <!-- <input type="text" id="title" name="title" class="form-control"> -->
+            <p class="font-italic">{{volonter.ime_prezime}}</p>
+          </div>
+          <label for="title">Datum Rodjenja</label>
+          <div class="input-group">
+            <!-- <input type="text" id="title" name="title" class="form-control"> -->
+            <p class="font-italic">{{volonter.datum}}</p>
+          </div>
+
+          <label for="title">Adresa</label>
+          <div class="input-group">
+            <!-- <input type="text" id="title" name="title" class="form-control"> -->
+            <p class="font-italic">{{volonter.adresa}}</p>
+          </div>
+
+          <label for="title">Grad</label>
+          <div class="input-group">
+            <!-- <input type="text" id="title" name="title" class="form-control"> -->
+            <p class="font-italic">{{volonter.grad}}</p>
+          </div>
+
+          <label for="title">Telefon</label>
+          <div class="input-group">
+            <!-- <input type="text" id="title" name="title" class="form-control"> -->
+            <p class="font-italic">{{volonter.telefon}}</p>
+          </div>
+
+          <label for="title">E-mail</label>
+          <div class="input-group">
+            <!-- <input type="text" id="title" name="title" class="form-control"> -->
+            <p class="font-italic">{{volonter.email}}</p>
+          </div>
+
+          <label for="title">Strucna Sprema</label>
+          <div class="input-group">
+            <!-- <input type="text" id="title" name="title" class="form-control"> -->
+            <p class="font-italic">{{volonter.str_sprema}}</p>
+          </div>
+
+          <label for="title">Zanimanje</label>
+          <div class="input-group">
+            <!-- <input type="text" id="title" name="title" class="form-control"> -->
+            <p class="font-italic">{{volonter.zanimanje}}</p>
+          </div>
+
+          <label for="title">Hobi,interesi,veštine</label>
+          <div class="input-group">
+            <!-- <input type="text" id="title" name="title" class="form-control"> -->
+            <p class="font-italic">{{volonter.hobi}}</p>
+          </div>
+
+          <label for="title">Dosadašnje volontersko iskustvo</label>
+          <div class="input-group">
+            <!-- <input type="text" id="title" name="title" class="form-control"> -->
+            <p class="font-italic">{{volonter.iskustvo}}</p>
+          </div>
+
+          <label for="title">Za koje od navedenih područja volonterskog rada ste zainteresovani</label>
+          <div class="input-group">
+            <!-- <input type="text" id="title" name="title" class="form-control"> -->
+            <p class="font-italic">{{volonter.podrucje_rada| join(',')}}</p>
+          </div>
+
+          <label for="title">Koje ste konkretne poslove spremni da obavljate</label>
+          <div class="input-group">
+            <!-- <input type="text" id="title" name="title" class="form-control"> -->
+            <p class="font-italic">{{volonter.poslovi| join(',')}}</p>
+          </div>
+
+          <label for="title">Koliko sati nedeljno možete posvetiti volonterskom radu</label>
+          <div class="input-group">
+            <!-- <input type="text" id="title" name="title" class="form-control"> -->
+            <p class="font-italic">{{volonter.nedeljni_sati| join(',')}}</p>
+          </div>
+
+          <label for="title">Koje vreme bi Vam odgovaralo za volontiranje? </label>
+          <div class="input-group">
+            <!-- <input type="text" id="title" name="title" class="form-control"> -->
+            <p class="font-italic">{{volonter.working_days | join(',') }}</p>
+          </div>
+
+          <label for="title">Da li ste spremni proći dodatnu obuku za volonterski rad?</label>
+          <div class="input-group">
+            <!-- <input type="text" id="title" name="title" class="form-control"> -->
+            <p class="font-italic">{{volonter.dodatna_obuka}}</p>
+          </div>
+          <div class="col-12 text-right">
+            <form action="/volonteri/delete/{{ volonter.id }}" method="POST" class="d-inline">
+              <button class="btn btn-default btn-custom btn-delete-custom" role="button" type="submit">Izbrisite</button>
+            </form>
+            <!-- <button onclick="window.location= '/album/edit/{{ album.id }}'" class="btn btn-default btn-custom btn-edit-custom" role="button">Izmeni</button> -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container overflow-hidden">
+      <div class="row">
+        <div class="col heading-custom-reverse">
+          <p class="col-5">Ukoliko zelite da postanete nas donator/ka i raspitajte se o nacinma da nam se pridruzite, javite na mail adresu
+            <strong>office@udruzenjepsihologanp.org</strong>
+          </p>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <div class="container">
+      <div class="row m-0">
+        <div class="col">
+          Copyrights &copy; ZenShu 2018
+        </div>
+        <div class="col menu d-flex justify-content-end">
+          <ul class="p-0">
+            <li>
+              <a href="#">Pocetna</a>
+            </li>
+            <li>
+              <a href="#">O nama</a>
+            </li>
+            <li>
+              <a href="#">Pitajte nas</a>
+            </li>
+            <li>
+              <a href="#">Kontakt</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>
