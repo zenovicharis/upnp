@@ -20,6 +20,25 @@ $(document).ready(function() {
   $("#logo").on("click", function() {
     window.location = "/";
   });
+
+  $("#createForm").submit(function(){
+    if($("#createForm").valid()){
+      $("#loading-box").modal({keyboard: false});
+    }
+  });
+
+  $("#loading-box").click(function(e){
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    return false; 
+  });
+
+  setTimeout(function(){
+    var coll = $(".mce-close");
+    $(".mce-close").click();
+    console.log(coll);
+  },1500);
+
   $("#createForm").validate({
     rules: {
       title: {
@@ -49,7 +68,6 @@ $(document).ready(function() {
 
   $("#upload").on("change", function(e) {
     var fileName = e.target.files[0].name;
-    console.log(fileName);
     if (fileName != null) {
       $("p#uploaded").text("You uploaded: " + fileName);
     } else {
@@ -58,17 +76,25 @@ $(document).ready(function() {
   });
   $("#upload-button-form").on("click", function() {
     $("#upload-form").click();
+
     return false;
   });
 
   $("#upload-form").on("change", function(e) {
-    e.preventDefault();
-    var fileName = $(this).val();
-    $("#dialog-box").modal();
+    e.preventDefault();   
+    var fileName = e.target.files[0].name;
+    if (fileName != null) {
+      $("#dialog-box").modal();
+    }
   });
 
   $("#btn-submit-upload").click(function() {
     $("#change-photo").submit();
+  });
+
+  $("#btn-delete-upload").click(function() {
+    $("#upload-form").val('');
+    $("#dialog-box").modal('hide');
   });
 
 
@@ -90,4 +116,12 @@ $(document).ready(function() {
     }
     return false;
 }, "File size is too large.");
+
+  $("#delete-form").submit(function(e){
+    e.preventDefault();
+    var toDelete = confirm("Da li zelite da izbrisete ovu Vest");
+    if(!toDelete){
+      return false;
+    }
+  });
 });

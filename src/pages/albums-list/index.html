@@ -26,7 +26,15 @@
             </li>
             <li>/</li>
             <li>
+              <a href="/projects">Projekti</a>
+            </li>
+            <li>/</li>
+            <li>
               <a href="/volonteri">Volonteri</a>
+            </li>
+            <li>/</li>
+            <li class="logout">
+              <a href="/logout"> <i class="fas fa-sign-out-alt"></i>Logout</a>
             </li>
           </ul>
 
@@ -44,6 +52,13 @@
           </h2>
         </div>
       </div>
+    </div>
+    <div class="container overflow-hidden">
+      {% if deletemessage is defined %}
+        <div class="alert alert-success" role="alert">
+          <strong>Uporozenje!</strong> {{ deletemessage }}
+        </div>
+      {% endif %}
     </div>
     <div class="container main-container py-3">
       <div class="row gallery">

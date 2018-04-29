@@ -36,13 +36,15 @@ module.exports = {
     'album-form-info': './src/pages/album-form-info/js/app.js',
     'volountieer-list': './src/pages/volountieer-list/js/app.js',
     'volountieer-form-info': './src/pages/volountieer-form-info/js/app.js',
+    'projects-list': './src/pages/projects-list/js/app.js',
+    'projects': './src/pages/projects/js/app.js',
+    'en-projects': './src/pages/en-projects/js/app.js',
 
     'en-patreon': './src/pages/en-patreon/js/app.js',
     'en-about': './src/pages/en-about/js/app.js',
     'en-contact': './src/pages/en-contact/js/app.js',
     'en-gallery': './src/pages/en-gallery/js/app.js',
     'en-news': './src/pages/en-news/js/app.js',
-    'en-single-news': './src/pages/en-single-news/js/app.js',
     'en-landing': './src/pages/en-landing/js/app.js',
     bootstrap: bootstrapEntryPoints.dev
   },
@@ -118,7 +120,7 @@ module.exports = {
       },
       {
         test: /\.gif$/,
-        loader: 'file-loader'
+        loader: 'url-loader'
       },
       {
         test: /\.ico$/,
@@ -134,7 +136,7 @@ module.exports = {
   devServer: {
     contentBase: path.join(__dirname, "dist"),
     compress: true,
-    port: 4200,
+    port: 4210,
     host: '0.0.0.0',
     hot: false,
     quiet: false
@@ -277,9 +279,6 @@ module.exports = {
       minify: false,
       filename: isProd ? 'volountieer-form-info/volountieer-form-info.html.twig' : 'volountieer-form-info/volountieer-form-info.html'
     }),
-
-
-
     new HtmlWebpackPlugin({
       title: 'Landing',
       chunks: ['en-landing', 'bootstrap'],
@@ -330,15 +329,34 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       title: 'Vest',
-      chunks: ['en-single-news', 'bootstrap'],
-      template: 'src/pages/en-single-news/index.html', // Load a custom template
+      chunks: ['projects-list', 'bootstrap'],
+      template: 'src/pages/projects-list/index.html', // Load a custom template
       inject: 'body', // Inject all scripts into the body
       minify: false,
-      filename: 'en-single-news/en-single-news.html'
+      filename: isProd ? 'projects-list/projects-list.html.twig' : 'projects-list/projects-list.html'
+    }),
+    new HtmlWebpackPlugin({
+      title: 'Vest',
+      chunks: ['projects', 'bootstrap'],
+      template: 'src/pages/projects/index.pug', // Load a custom template
+      inject: 'body', // Inject all scripts into the body
+      minify: false,
+      filename: 'projects/projects.html'
+    }),
+    new HtmlWebpackPlugin({
+      title: 'Vest',
+      chunks: ['en-projects', 'bootstrap'],
+      template: 'src/pages/en-projects/index.pug', // Load a custom template
+      inject: 'body', // Inject all scripts into the body
+      minify: false,
+      filename: 'en-projects/en-projects.html'
     }),
     new CleanWebpackPlugin(['dist']),
     new webpack.ProvidePlugin({
       $: "jquery",
+      "$.mobile": "jquery-mobile",
+      "jQuery.mobile": "jquery-mobile",
+      "window.jQuery.mobile": "jquery-mobile",
       jQuery: "jquery",
       Popper: 'popper.js/dist/umd/popper.js',
       Tether: 'tether',

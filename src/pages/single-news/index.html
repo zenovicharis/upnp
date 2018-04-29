@@ -11,6 +11,7 @@
 </head>
 
 <body style="display:none;">
+  {% if news.language == 'serbian' %}
   <header>
     <div class="container">
       <nav class="row">
@@ -23,8 +24,8 @@
               <a href="/public/news">Vesti</a>
             </li>
             <li>/</li>
-            <li>
-              <a href="https://http.cat/404">Projekti</a>
+            <li id="proj" data-toggle="tooltip" title="Projects Dropdown">
+              <a href="#">Projekti</a>
             </li>
             <li>/</li>
             <li>
@@ -66,7 +67,7 @@
               <a href="/public/news">Vesti</a>
             </li>
             <li>
-              <a href="https://http.cat/404">Projekti</a>
+              <a href="/projects">Projekti</a>
             </li>
             <li>
               <a href="/volunteer">Volonterski Servis</a>
@@ -92,11 +93,90 @@
       </nav>
     </div>
   </header>
+  {% else %}
+  <header>
+    <div class="container">
+      <nav class="row">
+        <div class="col-3 d-flex align-items-center">
+          <img id="logo" src="img/logoupnp.svg" alt="Organization's Logo" data-url="/" />
+        </div>
+        <div class="col d-flex align-items-center justify-content-end">
+          <ul class="main-navigation">
+            <li>
+              <a href="/en/public/news">News</a>
+            </li>
+            <li>/</li>
+            <li id="proj" data-toggle="tooltip" title="Projects Dropdown">
+              <a href="/en/projects">Projects</a>
+            </li>
+            <li>/</li>
+            <li>
+              <a href="/en/patreon">DONORS AND PARTNERS</a>
+            </li>
+            <li>/</li>
+            <li>
+              <a href="/en/gallery">Gallery</a>
+            </li>
+            <li>/</li>
+            <li>
+              <a href="/en/aboutus">About</a>
+            </li>
+            <li>/</li>
+            <li>
+              <a href="/contact">Contact</a>
+            </li>
+          </ul>
+          <span class="lang d-md-block d-none">
+            <img src="img/srb.png" alt="" />
+            <a href="/">SRB</a>
+          </span>
+          <span class="hamburger">
+            <a href="#">
+              <i class="fas fa-bars"></i>
+            </a>
+          </span>
+        </div>
+        <div class="col-md-3 col-4 custom-showing">
+          <ul class="mobile-menu">
+            <li class="hamburger">
+              <i class="fas fa-times"></i>
+            </li>
+            <li>
+              <a href="/en/public/news">News</a>
+            </li>
+            <li>
+              <a href="/en/projects">Projects</a>
+            </li>
+            <!-- <li>
+              <a href="/en/volunteer">Volonterski Servis</a>
+            </li> -->
+            <li>
+              <a href="/en/patreon">DONORS AND PARTNERS</a>
+            </li>
+            <li>
+              <a href="/en/gallery">Gallery</a>
+            </li>
+            <li>
+              <a href="/en/aboutus"> About</a>
+            </li>
+            <li>
+              <a href="/en/contact">Contact</a>
+            </li>
+            <li class="lang-tab">
+              <a href="/">
+                <img src="img/srb.png" alt="" />SRB</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </header>
+  {% endif %}
   <main>
     <div class="container main-container">
       <div class="row">
         <div class="col main-pic px-0">
-          <h3>"{{news.created|date("M/d/Y") }}"</h3>
+          <h3>{{news.created|date('d M Y') }}</h3>
           <img src="{{news.images.url}}" alt="">
         </div>
       </div>
@@ -109,14 +189,18 @@
         </div>
         <div class="col-md-4 col-12 row m-0 p-0">
           {% for sug in suggestions %}
-          <div class="col-md-12 col-4 single-suggestion px-0">
-            <img src="{{sug.images.url}}" alt="">
-            <h5>{{ sug.title }}</h5>
-            <div class="shortened">
-              {{ sug.content | raw }}
+          <div class="col-md-12 col-4 single-suggestion news-single px-0">
+            <div class="image-responsive-custom">
+              <img src="{{sug.images.url}}" alt="">
             </div>
-            <div>
-              <a href="/public/news/{{sug.id}}">Vise</a>
+            <div class="card-body">
+              <a href="/public/news/{{ sug.id }}">
+                <h5>{{ sug.title }} <i class="fas fa-angle-right"></i></h5> 
+              </a>
+              <div class="shortened">
+                {{ sug.content | raw }}
+              </div>
+              <a href="/public/news/{{sug.id}}" class="link">Vise <i class="fas fa-angle-right"></i></a>
             </div>
           </div>
           {% endfor %}

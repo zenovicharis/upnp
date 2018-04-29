@@ -26,8 +26,16 @@
             </li>
             <li>/</li>
             <li>
-                <a href="/volonteri">Volonteri</a>
-              </li>
+              <a href="/projects">Projekti</a>
+            </li>
+            <li>/</li>
+            <li>
+              <a href="/volonteri">Volonteri</a>
+            </li>
+            <li>/</li>
+            <li class="logout">
+              <a href="/logout"> <i class="fas fa-sign-out-alt"></i>Logout</a>
+            </li>
           </ul>
         </div>
       </nav>
@@ -43,6 +51,11 @@
           </p>
         </div>
       </div>
+      {% if deletemessage is defined %}
+      <div class="alert alert-success" role="alert">
+        <strong>Uporozenje!</strong> {{ deletemessage }}
+      </div>
+      {% endif %}
       <ul class="nav nav-tabs" id="myTab" role="tablist">
         <li class="nav-item">
           <a class="nav-link active" id="english-tab" data-toggle="tab" href="#english" role="tab" aria-controls="english" aria-selected="true">English</a>
@@ -67,9 +80,9 @@
               <div class="col">
                 <button onclick="window.location= '/news/edit/{{ oneNews.id }}'" class="btn btn-default btn-custom btn-info-custom" role="button">Edit</button>
                 <button onclick="window.location= '/news/{{ oneNews.id }}'" class="btn btn-default btn-custom btn-info-custom" role="button">Info</button>
-                <form action="/news/delete/{{ oneNews.id }}" method="post" class="d-inline">
+                <!-- <form action="/news/delete/{{ oneNews.id }}" method="post" class="d-inline">
                   <button class="btn btn-default btn-custom btn-delete-custom" type="submit">Izbrisi</button>
-                </form>
+                </form> -->
               </div>
             </div>
           </div>
@@ -91,9 +104,9 @@
               <div class="col">
                 <button onclick="window.location= '/news/edit/{{ oneNews.id }}'" class="btn btn-default btn-custom btn-info-custom" role="button">Edit</button>
                 <button onclick="window.location= '/news/{{ oneNews.id }}'" class="btn btn-default btn-custom btn-info-custom" role="button">Info</button>
-                <form action="/news/delete/{{ oneNews.id }}" method="post" class="d-inline">
+                <!-- <form action="/news/delete/{{ oneNews.id }}" method="post" class="d-inline">
                   <button class="btn btn-default btn-custom btn-delete-custom" type="submit">Izbrisi</button>
-                </form>
+                </form> -->
               </div>
             </div>
           </div>

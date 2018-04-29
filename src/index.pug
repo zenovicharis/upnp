@@ -3,8 +3,8 @@ head
   meta(charset='UTF-8')
   meta(name='viewport' content='width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0')
   meta(http-equiv='X-UA-Compatible' content='ie=edge')
-  link(rel="shortcut icon" href="img/favicon.ico" type="image/x-icon")
-  link(rel="icon" href="img/favicon.ico" type="image/x-icon")
+  link(rel="shortcut icon" href="upnp.ico" type="image/x-icon")
+  link(rel="icon" href="upnp.ico" type="image/x-icon")
   link(rel='stylesheet', href='https://use.fontawesome.com/releases/v5.0.10/css/all.css', integrity='sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg', crossorigin='anonymous')
   link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css')
   title UPNP - Pocetna
@@ -25,17 +25,17 @@ main
           li(data-target='#slider' data-slide-to='2')
         // The slideshow
         .carousel-inner
+          //- p.strap-main.mb-0.d-md-block.d-none
+          //-   span Udruženje Psihologa Novi Pazar
           .carousel-item.active
-            img(src='img/slajd1.jpg' alt='Los Angeles')
-            p.strap-main.mb-0.d-md-block.d-none
+            img(src='img/slider/1.jpg' alt='Los Angeles')
+          .carousel-item
+            img(src='img/slider/2.jpg' alt='Chicago')
+            //- p.strap-main.mb-0.d-md-block.d-none
               span Headline Title
           .carousel-item
-            img(src='img/slajd2.jpg' alt='Chicago')
-            p.strap-main.mb-0.d-md-block.d-none
-              span Headline Title
-          .carousel-item
-            img(src='img/slajd3.jpg' alt='New York')
-            p.strap-main.mb-0.d-md-block.d-none
+            img(src='img/slider/3.jpg' alt='New York')
+            //- p.strap-main.mb-0.d-md-block.d-none
               span Headline Title
         // Fixed image to slider
         img#logo-slider(src='img/logoslider.svg' alt="Organization's Logo")
@@ -47,60 +47,57 @@ main
           span Vesti
       .col.text-right.mt-2.link
         p.mb-0
-          | Za vise vesti
+          | Za više vesti
           a(href='/public/news')  pritisnite ovde
-    .row.d-flex.justify-content-around.mx-0.mb-4#news-block
-      
+    #news-block.row.d-flex.justify-content-around.mx-0.mb-4
     // END News ROW
     // Donate Banner ROW
-    .row.donate-banner.py-md-2.py-3.m-0
+    .row.donate-banner.py-md-2.py-5.m-0
       .col-md-2.col-1.pr-4
         img#box(src='img/giftboxdonate.svg' alt='Donate Box')
       .col-md-5.col-11.row.mt-md-4.mt-2.mb-1
-        .col-6.px-0
+        .col-12.px-0
           h3.text-center DONIRAJ
-          p.text-center Uploatom na racun iz inostranstvar
-        .col-6.px-0
-          h3.text-center DONIRAJ
-          p.text-center Uploatom na racun iz inostranstvar
+          p.text-center Uplatom na račun iz inostranstva
         p.text-center
-          | Ukoliko zelite da postanete nas donator/ka raspitajte se o nacinima da nam se pridruzite, javite se na e-mail adresu 
+          | Ukoliko zelite da postanete nas donator/ka raspitajte se o načinima da nam se pridružite, javite se na e-mail adresu 
           strong office@udruzenjepsihologanp.org
-      .col-md-5.col-12.d-flex.align-items-center
+      .col-md-5.col-12.d-flex.align-items-center.pb-3.pb-md-0
         h2#patreons.custom-block-banner.m-auto.p-4 DONATORI I PARTNERI
     // END Donate Banner ROW
     // About Us ROW
     .row.about-us.py-2.m-0
-      .col-md-2.col-12.logo-beli.d-flex.vertical-align-center
-        img(src='img/LOGOBELI.svg' alt='')
+      .col-md-2.col-12.logo-beli.d-flex.vertical-align-center.py-5.py-md-0
+        img(src='img/LOGOBELI.svg' alt='UPNP Logo')
       .col-md-5.col-12.pl-md-0
         p.text-justify
-          strong.highlighted Udruzenje psihologa Novi Pazar (UPNP)
-          |  je nevladina i neprofitna organizacija cija se misija sastoji
-          |             u promovisanju inkluzivnog pristupa osobama sa smetnjama u razvoju i invaliditetom. Udruzenje je registrovalo
-          |             30.juna 2014 godine u Novom Pazaru, kao organizacija koja radi na pruzanju podrske osobama sa smetnjama u razvoju
-          |             i invaliditetom, kao i ostalim marginalizovanim drustvenim grupama i sprvodjenju suluga socijalne zastite. Stoga,
-          |             glalvni razlog postojanja udruzenja jeste pruzanje pomoci osobama, a narocito deci i mladima sa smetnjama u razvoju
-          |             i invaliditetom i njihovim prodicama, kroz siroki spektar aktivnosti, kao i delovanje na sistemskim i institucionalnim
-          |             resenjima
+          strong.highlighted Udruženje psihologa Novi Pazar (UPNP)
+          |  je nevladina i neprofitna organizacija čija se misija sastoji
+          |  u promovisanju inkluzivnog pristupa osobama sa smetnjama u razvoju i invaliditetom. Udruženje je registrovalo
+          |  30. Juna 2014 godine u Novom Pazaru, kao organizacija koja radi na pružanju podrške osobama sa smetnjama u razvoju
+          |  i invaliditetom, kao i ostalim marginalizovanim društvenim grupama i sprovodjenju usluga socijalne zaštite. Stoga,
+          |  glavni razlog postojanja udruženja jeste pružanje pomoći osobama, a naročito deci i mladima sa smetnjama u razvoju
+          |  i invaliditetom i njihovim prodicama, kroz široki spektar aktivnosti, kao i delovanje na sistemskim i institucionalnim
+          |  rešenjima
       .col-md-5.col-12.bout-text-container
-        p.strap-reverse.mb-0
-          span O nama
-        p.text-justify.relative
-          | Sledeci viziju &quot;Jednakih Mogucnosti za sve &quot;, Udruzenje radi na izradnjicivilnog drustva zasnovanog na jednakim mogucnostima
-          | i ravnopravnosti svih gradjana i gradjanki, nenasilju, nediskriminalciji, postovanju ljudskih prava bez obzira
-          | na razlicitost, drustvenoj ukljucenosti i odgovornosti
+        .col.text-left.text-md-center.text-lg-left.social-container
+          a.col-4.social-pik.d-inline-block(href="https://www.facebook.com/udruzenjepsihologanp/" target='_blank')
+            img.w-100(src='img/fb.svg')
+          a#insta.col-4.social-pik.d-inline-block(href="https://www.instagram.com/udruzenjepsihologa_novipazar/" target='_blank')
+            img.w-100(src='img/insta.svg')
+        //- p.strap-reverse.mb-0.about-strap
+        //-   span O nama
     // END About Us ROW
     // Info ROW
     .row.m-0
       .col-md-6.col-12.m-0.info-data
         p.info OFFICE
-        p.info Mitrovacka BB
+        p.info Mitrovačka BB
         p.info.mb-2 Novi Pazar, 36300
-        p.info Telefon:+381631890130
-        p.info +381695727072
+        p.info Phone:+381631890130
         p.info.mb-2 +381(0)20600363
         p.info E-mail:office@udruzenjepsihologanp.org
+        p.info udruzenje.psihologa.np@gmail.com
       .col-md-6.col-12.overflow-h.map.px-0
         iframe(src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2911.4044453514034!2d20.50757465146469!3d43.13803567904003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x475628168ea4cb55%3A0x1d62fe2b15af789f!2sMitrova%C4%8Dka%2C+Novi+Pazar%2C+Serbia!5e0!3m2!1sen!2smk!4v1521295900476' width='600' height='450' frameborder='0' style='border:0' allowfullscreen='')
       // END Info ROW

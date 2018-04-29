@@ -49,14 +49,43 @@ $(document).ready(function() {
   });
 
   $("#upload-form").on("change", function(e) {
-    e.preventDefault();
-    var fileName = $(this).val();
-    $("#dialog-box").modal();
+    var fileName = e.target.files[0].name;
+    if (fileName != null) {
+      $("#dialog-box").modal();
+    } else {
+      $("p#uploaded").text("");
+    }
   });
 
   $("#btn-submit-upload").click(function() {
     $("#change-photo").submit();
+    $("#dialog-box").modal('hide');
+    $("#loading-box").modal({keyboard: false});
   });
+
+  $("#btn-delete-upload").click(function() {
+    $("#upload-form").val('');
+    $("#dialog-box").modal('hide');
+  });
+
+  $("#createForm").submit(function(){
+    if($("#createForm").valid()){
+      $("#loading-box").modal({keyboard: false});
+    }
+  });
+
+  $("#loading-box").click(function(e){
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    return false; 
+  });
+
+  setTimeout(function(){
+    var coll = $(".mce-close");
+    $(".mce-close").click();
+    console.log(coll);
+  },1500);  
+
 
   jQuery.validator.addMethod(
     "filesize_max",
@@ -78,4 +107,19 @@ $(document).ready(function() {
     },
     "File size is too large."
   );
+
+  $("#delete-form").submit(function(e){
+    var toDelete = confirm("Da li zelite da izbrisete ovaj Album");
+    if(!toDelete){
+      return false;
+    }
+  });
+  $("#delete-form-image").submit(function(e){
+    var toDelete = confirm("Da li zelite da izbrisete ovu sliku");
+    if(!toDelete){
+      return false;
+    }
+  });
+
+  
 });

@@ -139,3 +139,7 @@ p.strap:after{
     @warn "Breakpoint mixin supports: xs, sm, md, lg";
   }
 }
+
+.heading-custom{
+  overflow:hidden;
+}

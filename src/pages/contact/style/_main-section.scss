@@ -5,7 +5,7 @@
     .info {
       background: linear-gradient(to right, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 0));
       position: absolute;
-      bottom: 4em;
+      bottom: 3.2em;
       color: $borda;
       font-size: 145%;
       h1 {
@@ -29,5 +29,8 @@
         font-weight:800;
       }
     }
+  }
+  .spec{
+    color:$crvena;
   }
 }

@@ -26,7 +26,15 @@
             </li>
             <li>/</li>
             <li>
+              <a href="/projects">Projekti</a>
+            </li>
+            <li>/</li>
+            <li>
               <a href="/volonteri">Volonteri</a>
+            </li>
+            <li>/</li>
+            <li class="logout">
+              <a href="/logout"> <i class="fas fa-sign-out-alt"></i>Logout</a>
             </li>
           </ul>
         </div>
@@ -54,7 +62,7 @@
               <div class="image-container">
                 <img src="{{ image.url }}" class="w-100 mb-1" alt=""> {% if album.images|length > 2 %}
                 <div class="text-center m-0">
-                  <form action="/album/image/{{album.id}}" method="POST" class="d-inline">
+                  <form action="/album/image/{{album.id}}" method="POST" class="d-inline" id="delete-form-image">
                     <button class="btn btn-default btn-custom btn-delete-custom" type="submit">Izbrisi</button>
                   </form>
                 </div>
@@ -96,11 +104,16 @@
                 <p id="uploaded"></p>
               </div>
               {% endif %}
-
               <div class="question text-right">
-                <button class="btn btn-default">{{ edit ? "Izmeni" : "Kreiraj" }}</button>
-              </div>
+              <button class="btn btn-default">{{ edit ? "Izmeni" : "Kreiraj" }}</button>
             </form>
+            {% if album.id is null %}
+            <form action="/album/delete/{{ album.id }}" method="POST" class="d-inline" id="delete-form">
+              <button class="btn btn-default btn-custom btn-delete-custom" role="button" type="submit">Izbrisite</button>
+            </form>
+            </div>
+            {% endif %}
+
 
         </div>
       </div>
@@ -147,8 +160,19 @@
           <p class="text-center">Da li ste sigurni da zelite postaviti sliku ?</p>
           <p class="text-center">
             <button type="button" class="btn btn-primary" id="btn-submit-upload">Da</button>
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Ne</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal" id="btn-delete-upload">Ne</button>
           </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" tabindex="-1" role="dialog" id="loading-box">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <img src="img/loading.gif" alt="Loading" class="d-block m-auto">
+          <p class="text-center">Loading...</p>
         </div>
       </div>
     </div>

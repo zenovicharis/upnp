@@ -83,9 +83,10 @@ header {
     img#logo{
       width:7em;
       transition:all 1s ease 0s;
-      // &:hover{
-      //   transform: rotateX(150deg);
-      // }
+      cursor:pointer;
+      &:hover{
+        width:8em;
+      }
     }
 
     .custom-showing{
@@ -150,4 +151,16 @@ header {
 }
 body{
   overflow-x:hidden;
+}
+.list-group {
+  z-index:999;
+  a.list-group-item{
+    z-index:999;
+    text-transform: uppercase;
+    text-align:center;
+    &:hover{
+      background-color: $borda;
+      color:#fff;
+    }
+  }
 }

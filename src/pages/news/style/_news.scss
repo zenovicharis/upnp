@@ -1,13 +1,31 @@
 .news-sections {
+  &:hover h4{
+    background-color: $borda;
+    color:#fff;
+  }
   padding:1em 0;
   position:relative;
   .news-picture {
     border-top:3px solid $borda;
     padding:0;
+    height: 17em;
+    overflow: hidden;
     img {
       width:100%;
     }
   }
+  .news-text{
+    border-top:3px solid $borda;
+    padding:0;
+    h4{
+      border-bottom:3px solid $borda;
+      padding:0 2%;
+    }
+    p{
+      padding:0 2%;
+    }
+  }
+
   button {
     position: absolute;
     right: 3%;
@@ -27,7 +45,7 @@
     display: inline-block;
     padding: 5px 5px;
     @include breakpoint(sm){
-      left: -7.8%;
+      left: 0%;
     }
   }
 }

@@ -26,8 +26,16 @@
             </li>
             <li>/</li>
             <li>
-                <a href="/volonteri">Volonteri</a>
-              </li>
+              <a href="/projects">Projekti</a>
+            </li>
+            <li>/</li>
+            <li>
+              <a href="/volonteri">Volonteri</a>
+            </li>
+            <li>/</li>
+            <li class="logout">
+              <a href="/logout"> <i class="fas fa-sign-out-alt"></i>Logout</a>
+            </li>
           </ul>
         </div>
       </nav>
@@ -37,14 +45,24 @@
     <div class="container overflow-hidden">
       <div class="row">
         <div class="col heading-custom">
-          <h2>Kreiraj Vest</h2>
+          <h2>Info</h2>
         </div>
       </div>
     </div>
     <div class="container main-container py-3">
       <div class="row volountieer-form">
         <div class="col">
-          <h5>Vest</h5>
+          {% if message is defined %}
+          <div class="alert alert-success" role="alert">
+            <strong>Uporozenje!</strong> {{ message }}
+          </div>
+          {% endif %} {% if updatemessage is defined %}
+          <div class="alert alert-success" role="alert">
+            <strong>Uporozenje!</strong> {{ updatemessage }}
+          </div>
+          {% endif %}
+
+          <h5>Post</h5>
           <hr>
           <div class="col-12">
             <img src="{{ news.images.url }}" class="w-100" alt="">
@@ -85,7 +103,7 @@
             </div> -->
           <div class="col-12 text-right">
             <button onclick="window.location= '/news/edit/{{ news.id }}'" class="btn btn-default btn-custom btn-info-custom" role="button">Izmeni</button>
-            <form action="/news/delete/{{ news.id }}" method="post" class="d-inline">
+            <form action="/news/delete/{{ news.id }}" method="post" class="d-inline" id="delete-form">
               <button class="btn btn-default btn-custom btn-delete-custom" type="submit">Izbrisi</button>
             </form>
           </div>
@@ -134,7 +152,7 @@
           <p class="text-center">Da li ste sigurni da zelite promeniti sliku ?</p>
           <p class="text-center">
             <button type="button" class="btn btn-primary" id="btn-submit-upload">Da</button>
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Ne</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal" id="btn-delete-upload">Ne</button>
           </p>
         </div>
       </div>

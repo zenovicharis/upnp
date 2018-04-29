@@ -26,7 +26,15 @@
             </li>
             <li>/</li>
             <li>
+              <a href="/projects">Projekti</a>
+            </li>
+            <li>/</li>
+            <li>
               <a href="/volonteri">Volonteri</a>
+            </li>
+            <li>/</li>
+            <li class="logout">
+              <a href="/logout"> <i class="fas fa-sign-out-alt"></i>Logout</a>
             </li>
           </ul>
         </div>
@@ -41,9 +49,19 @@
         </div>
       </div>
     </div>
+
     <div class="container main-container py-3">
       <div class="row volountieer-form">
         <div class="col">
+          {% if message is defined %}
+          <div class="alert alert-success" role="alert">
+            <strong>Uporozenje!</strong> {{ message }}
+          </div>
+          {% endif %} {% if updatemessage is defined %}
+          <div class="alert alert-success" role="alert">
+            <strong>Uporozenje!</strong> {{ updatemessage }}
+          </div>
+          {% endif %}
           <h5>Album</h5>
           <hr>
           <div class="row">
@@ -69,10 +87,10 @@
             <p class="font-italic">{{album.english_title}}</p>
           </div>
           <div class="col-12 text-right">
-            <form action="/album/delete/{{ album.id }}" method="POST" class="d-inline">
+            <button onclick="window.location= '/album/edit/{{ album.id }}'" class="btn btn-default btn-custom btn-edit-custom" role="button">Izmeni</button>
+            <form action="/album/delete/{{ album.id }}" method="POST" class="d-inline" id="delete-form">
               <button class="btn btn-default btn-custom btn-delete-custom" role="button" type="submit">Izbrisite</button>
             </form>
-            <button onclick="window.location= '/album/edit/{{ album.id }}'" class="btn btn-default btn-custom btn-edit-custom" role="button">Izmeni</button>
           </div>
         </div>
       </div>

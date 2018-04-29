@@ -1,5 +1,10 @@
 .about-us {
   background-color:$tamnija-krem;
+  background-image:url('../img/volonter.png');
+  background-repeat: no-repeat;
+  background-position-x: right;
+  background-size: 18em;
+  background-position-y: bottom;
   color:#fff;
   font-style: italic;
   text-justify:both;
@@ -7,21 +12,27 @@
   p {
     vertical-align: middle;
     display: table-cell;
-    padding-top: 2em;
+    padding-top: 0em;
     
   }
   .highlighted{
     color:$borda;
   }
-
+  .logo-beli{
+    @include breakpoint(md){
+      height:1em;
+    }
+  }
   .logo-beli img{
     width: auto;
     margin: auto;
+    margin-top: 1.5em;
     @include breakpoint(sm){
       width:75%;
     }
   }
   .bout-text-container{
+    
     height:13em;
     @include breakpoint(md){
       height:initial;
@@ -33,7 +44,27 @@
         top: 6em;
       }
     }
+    .about-strap:before{
+      transform: skew(10deg) !important;
+    }
+  }
 
+
+  .social-container{
+    padding-top: 2.1em;
+    text-align: left;
+    .social-pik{
+      transition:all .4s ease 0s;
+      &:hover{
+        transform: translateY(-5px);
+
+      }
+
+    }
+    #insta{
+      position:relative;
+      left:-3.5em;
+    }
   }
 
 }

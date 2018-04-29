@@ -26,25 +26,34 @@
             </li>
             <li>/</li>
             <li>
+              <a href="/projects">Projekti</a>
+            </li>
+            <li>/</li>
+            <li>
               <a href="/volonteri">Volonteri</a>
+            </li>
+            <li>/</li>
+            <li class="logout">
+              <a href="/logout"> <i class="fas fa-sign-out-alt"></i>Logout</a>
             </li>
           </ul>
         </div>
       </nav>
     </div>
   </header>
+
   <main>
     <div class="container overflow-hidden">
       <div class="row">
         <div class="col heading-custom">
-          <h2>Kreiraj Vest</h2>
+          <h2>Kreiraj</h2>
         </div>
       </div>
     </div>
     <div class="container main-container py-3">
       <div class="row volountieer-form">
         <div class="col">
-          <h5>Vest</h5>
+          <h5>Post</h5>
 
           <hr> {% if news.id is defined %}
           <div class="col-12">
@@ -111,8 +120,15 @@
               </div>
               <div class="question text-right">
                 <button class="btn btn-default" type="submit">{{ edit ? "Izmeni" : "Kreiraj" }}</button>
-              </div>
             </form>
+
+            {% if news.id is defined %}
+            <form action="/news/delete/{{ news.id }}" method="post" class="d-inline" id="delete-form">
+              <button class="btn btn-default btn-custom btn-delete-custom" type="submit">Izbrisi</button>
+            </form>
+            {% endif %}
+            </div>
+
         </div>
       </div>
     </div>
@@ -159,12 +175,25 @@
           <p class="text-center">Da li ste sigurni da zelite promeniti sliku ?</p>
           <p class="text-center">
             <button type="button" class="btn btn-primary" id="btn-submit-upload">Da</button>
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Ne</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal" id="btn-delete-upload">Ne</button>
           </p>
         </div>
       </div>
     </div>
   </div>
+
+  <div class="modal" tabindex="-1" role="dialog" id="loading-box">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <img src="img/loading.gif" alt="Loading" class="d-block m-auto">
+          <p class="text-center">Loading...</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
 </body>
 
 </html>

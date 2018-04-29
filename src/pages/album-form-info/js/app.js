@@ -11,5 +11,21 @@ $(document).ready(function(){
     window.location = '/';
   });
 
+  $("#upload").on("change", function(e) {
+    var fileName = e.target.files[0].name;
+    if (fileName != null) {
+      $("p#uploaded").text("You uploaded: " + fileName);
+    } else {
+      $("p#uploaded").text("");
+    }
+  });
+
+
+  $("#delete-form").submit(function(e){
+    var toDelete = confirm("Da li zelite da izbrisete ovaj Album");
+    if(!toDelete){
+      return false;
+    }
+  });
   
 });
