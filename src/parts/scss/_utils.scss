@@ -143,3 +143,41 @@ p.strap:after{
 .heading-custom{
   overflow:hidden;
 }
+
+%not-link{
+  &:hover{
+    text-decoration: none;
+  }
+}
+
+.overflow-hidden{
+  overflow:hidden;
+}
+
+.btn{
+  &.btn-info-custom:hover {
+    background-color:cornflowerblue;
+    color:#fff;
+  }
+
+  &.btn-edit-custom:hover {
+    background-color:skyblue;
+    color:#fff;
+  }
+
+  &.btn-delete-custom:hover {
+    background-color: rgb(255, 101, 101);
+    color:#fff;
+  }
+}
+
+.custom-btn-navigation{
+  // position:relative;
+  // top:-5%;
+  text-align:right;
+}
+
+.hide {
+  display: none !important;
+}
+

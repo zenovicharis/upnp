@@ -1,12 +1,13 @@
 @import url('https://fonts.googleapis.com/css?family=Ubuntu:400,400i,500,500i,700,700i');
-@import "../../news/style/colors";
+@import "../../../parts/scss/colors";
 @import "../../../parts/scss/utils";
 @import "../../../parts/scss/header";
+@import "../../../parts/scss/footer";
+@import "../../../parts/scss/loader";
 @import "../../news/style/main-section";
 @import "../../news/style/news";
 @import "../../news/style/gallery";
 @import "../../news/style/form";
-@import "../../news/style/footer";
 
 * {
   font-family: 'Ubuntu', sans-serif;

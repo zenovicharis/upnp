@@ -1,7 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Ubuntu:400,400i,500,500i,700,700i');
-@import "colors";
+@import "../parts/scss/colors";
 @import "../parts/scss/utils";
 @import "../parts/scss/header";
+@import "../parts/scss/loader";
 @import "slider";
 @import "main-structure";
 @import "d-banner";

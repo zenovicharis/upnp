@@ -1,0 +1,20 @@
+footer{
+    background-color:$borda;
+    padding:2% 0;
+    width:100%;
+    color:#fff;
+    .menu {
+      ul{
+        list-style-type: none;
+        
+        li{
+          display:inline-block;
+          padding:0 5px;
+          a {
+            @extend %not-link;
+            color:inherit;
+          }
+        }
+      }
+    }
+  }

@@ -8,7 +8,7 @@ var bootstrapEntryPoints = require('./webpack.bootstrap.config');
 var isProd = process.env.NODE_ENV == "production";
 console.log('Is Production: ', isProd); // 'local'
 
-var pathLocal = isProd ? "/var/www/upnp.ga/dist" : path.resolve(__dirname, 'dist');
+var pathLocal = isProd ? "/var/www/upnp/upnp-backend/dist" : path.resolve(__dirname, 'dist');
 
 var extractPlugin = new ExtractTextPlugin({
   filename: 'assets/css/[name].css'
@@ -120,7 +120,14 @@ module.exports = {
       },
       {
         test: /\.gif$/,
-        loader: 'url-loader'
+        use: [{
+          loader: 'file-loader',
+          options: {
+            name: '[name].[ext]',
+            outputPath: isProd ? 'assets/img/': 'img/',
+            publicPath: isProd ?  '/dist/assets/img/': '/img/'
+          }
+        }]
       },
       {
         test: /\.ico$/,
