@@ -28,7 +28,7 @@ main
           p
             strong Email
           p office@udruzenjepsihologanp.org
-    form(action='' id='contact-form' method='POST')
+    form(action='/send-mail' id='contact-form' method='POST')
       .row.contact-form
         .col-12
           h1.text-right.my-4 Pošaljite nam poruku
@@ -54,6 +54,16 @@ main
             textarea.form-control(aria-label='With textarea' rows='7' name='message' id='message')
         .col-12.buton-container
           button.btn.btn-default.btn-custom Posalji
+    #myModal.modal.fade
+      .modal-dialog
+        .modal-content
+          // Modal Header
+          #customHeaderModal.modal-header
+            h4.modal-title.m-auto Obavestenje
+            //- button.close(type="button" data-dismiss="modal") ×
+          // Modal body
+          #modalText.modal-body.text-center
+            |
 if isProd == 'prod'
   include ./../../parts/footer-public-srb.pug
 else

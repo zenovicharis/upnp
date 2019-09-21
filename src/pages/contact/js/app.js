@@ -2,8 +2,21 @@ import "../style/main_c.scss";
 import "./jquery.validate.min.js";
 import "./additional-methods.min.js";
 import "bootstrap";
+$.urlParam = function (name) {
+  var results = new RegExp('[\?&]' + name + '=([^&#]*)')
+                    .exec(window.location.search);
 
+  return (results !== null) ? decodeURIComponent(results[1]).split('+').join(' ') || 0 : false;
+}
 $(document).ready(function() {
+  let succesfulMessage = $.urlParam('message');
+  let errorMessage = $.urlParam('errormessage');
+  if (succesfulMessage || errorMessage) {
+    let message = succesfulMessage ? succesfulMessage : errorMessage;
+    $("#customHeaderModal").css('background-color', succesfulMessage ? '' : 'red' );
+    $("#modalText").text(message);
+    $("#myModal").modal();
+  }
   $("body").css("display", "block");
   $("#logo").on("click", function() {
     var url = $(this).attr("data-url");
