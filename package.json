@@ -52,6 +52,6 @@
     "lightbox2": "^2.10.0",
     "load-grunt-config": "^0.19.2",
     "moment": "^2.22.1",
-    "tinymce": "^4.7.11"
+    "tinymce": "^5.7.1"
   }
 }
